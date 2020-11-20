@@ -1,42 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import Login from "./components/Login";
+import Register from "./components/Register"; 
+import Explore from "./components/Explore";
+import History from "./components/History"; 
+import Profile from "./components/Profile";
+import Favourites from "./components/Favourites"; 
+import PlanList from "./components/PlanList"; 
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Explore</Link>
+            </li>
+            <li>
+              <Link to="/">Favorites</Link>
+            </li>
+            <li>
+              <Link to="/">Plan</Link>
+            </li>
+            <li>
+              <Link to="/">History</Link>
+            </li>
+            <li>
+              <Link to="/">Profile</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
+      <Switch> 
+        <Route path="/register">
+         <Register />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/user/1/plan">
+          <PlanList />
+        </Route>
+        <Route path="/user/1/history">
+          <History />
+        </Route>
+        <Route path="/user/1/profile">
+          <Profile />
+        </Route>
+        <Route path="/user/1/favourites">
+          <Favourites />
+        </Route>
+        <Route path="/">
+          <Explore />
+        </Route> 
+      </Switch>
+    </Router>
   );
 }
 
-//to display the list of users in APP
-// const App = () => {
-//     const {
-//         state,
-//         dispatch
-//     } = useApplicationData();
-//       const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>
-//   ));
-//   return (<div className="App" >
-//     <h1> Users </h1>
-
-//     <ul> {userList} </ul>
-//   </div >
-//   );
-// };
 
 
 export default App;

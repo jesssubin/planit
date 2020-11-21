@@ -54,7 +54,7 @@ function App() {
         <Route path="/user/1/favourites">
           <Favourites />
         </Route>
-        <Route path="/">
+        <Route path="*">
           <Explore />
         </Route> 
       </Switch>

@@ -1,0 +1,20 @@
+@import "./variables";
+
+
+
+.register {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  background-color: $bg-colour;
+  color: $font-color; 
+  font-style: $font1;
+  
+  form {
+    flex-direction: column;
+    align-items: center;
+    text-align: right;
+  }
+
+    
+}

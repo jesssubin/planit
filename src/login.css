@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(17,55,56);
+  background-color: rgb(6,52,52); 
   display: flex;
   flex-direction: column;
   font-family: "Raleway", sans-serif;
@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(17,55,56);
+  background-color: rgb(6,52,52);
   color: #ffffff;
   font-family: "Raleway", sans-serif;
 }
@@ -18,16 +18,15 @@ body {
 .login-form{
   display: flex; 
   flex-direction: column;
-  background-color: rgb(17,55,56);
+  background-color: rgb(6,52,52); 
 }
 
-img{
+.login-logo{
   display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30vw;
-  height: 30vw;
+ 
 }
 
 form {
@@ -40,11 +39,20 @@ input {
   resize: none;
   border: none; 
   border-bottom: 3px solid white;
-  background-color: rgb(17,55,56);
+  background-color: rgb(6,52,52); 
+  margin-bottom: 1em;
+  color: white
+
 }
 
 .submit-btn{
   font-family: "Raleway", sans-serif;
+  margin: 1em;
+  background-color: #fd9d00;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  padding: 5px 10px;
 }
 
 #signup {

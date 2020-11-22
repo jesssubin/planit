@@ -29,3 +29,22 @@ form {
 #register-login{
   color:#FFFFFF;
 }
+.register-button {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.register-btn {
+  font-size: 10px;
+  padding: 10px 24px;
+  background-color: #fd9d00;
+  border-radius: 8px;
+  color: white;
+  border: none;
+}
+
+.register-btn:hover {
+  background-color: #fd7d00 ; /* Green */
+  color: white;
+}

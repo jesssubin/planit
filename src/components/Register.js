@@ -26,9 +26,11 @@ export default function Register (props) {
         <label for="password"></label>
         <input type="password" placeholder="Enter Password" name="password" required />
       </span>
-      <span>
-        <button type="submit" class="btn btn-primary">Register</button>
-      </span>
+      
+      <div class="register-button">
+        <button type="submit" class="register-btn">Register</button>
+      </div>
+      
       <div>
         <span>Have an account? <a href="/login" id='register-login'>Sign in.</a></span>
       </div>

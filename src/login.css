@@ -1,0 +1,52 @@
+body {
+  background-color: rgb(17,55,56);
+  display: flex;
+  flex-direction: column;
+  font-family: "Raleway", sans-serif;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(17,55,56);
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+}
+
+.login-form{
+  display: flex; 
+  flex-direction: column;
+  background-color: rgb(17,55,56);
+}
+
+img{
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 30vw;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+input {
+  resize: none;
+  border: none; 
+  border-bottom: 3px solid white;
+  background-color: rgb(17,55,56);
+}
+
+.submit-btn{
+  font-family: "Raleway", sans-serif;
+}
+
+#signup {
+  color: white
+}

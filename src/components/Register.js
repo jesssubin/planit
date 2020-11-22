@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, PropTypes } from "react";
 import axios from 'axios'; 
 
 export default function Register (props) {
@@ -10,6 +10,11 @@ export default function Register (props) {
     confirmPassword: ""
   })
   
+  // constructor() {
+  //   super();
+  //   this.handler = this.handler.bind(this);
+  // }
+
   //update the state based on user input
   const handleChange = (event) => {
     const { id, value } = event.target
@@ -31,6 +36,7 @@ export default function Register (props) {
         axios.post('http://localhost:3001/api/users', userData)
             .then(function (response) {
                 if(response.status === 200){
+                  console.log("axios post request has been made successfully");
                     setState(prevState => ({
                         ...prevState,
                         'successMessage' : 'Registration successful. Redirecting to home page..'
@@ -59,8 +65,10 @@ export default function Register (props) {
     e.preventDefault();
     if(state.password === state.confirmPassword) {
         saveUser()    
+        console.log('user saved!');
     } else {
-        props.showError('Passwords do not match');
+        props.showError('Passwords do not match')
+        console.log('try again');
     }
 }
 
@@ -95,6 +103,14 @@ export default function Register (props) {
              id="password" 
              placeholder="Password"
              value={state.password}
+             onChange={handleChange} />
+      
+      <label for="confirmPassword"></label>
+      <input type="password" 
+             className="form-control" 
+             id="confirmPassword" 
+             placeholder="Confirm Password"
+             value={state.confirmPassword}
              onChange={handleChange} />
 
       <button type="submit" 

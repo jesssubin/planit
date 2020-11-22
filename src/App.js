@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Login from "./components/Login";
 import Register from "./components/Register"; 
-import Explore from "./components/Explore";
+import Explore from "./components/LiveSearch";
 import History from "./components/History"; 
 import Profile from "./components/Profile";
 import Favourites from "./components/Favourites"; 
@@ -11,6 +11,7 @@ import PlanList from "./components/PlanList";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
+  const [errorMessage, updateErrorMessage] = useState(null);
   return (
     <Router>
       <div>
@@ -37,7 +38,7 @@ function App() {
       
       <Switch> 
         <Route path="/register">
-         <Register />
+         <Register showError={updateErrorMessage}/>
         </Route>
         <Route path="/login">
           <Login />

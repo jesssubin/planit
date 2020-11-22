@@ -10,9 +10,9 @@ export default function Register (props) {
         <img src={logo} alt="Logo" />
       </div>
       <div class="registerHeader">
-      <h2>Create a new account</h2>
+      <h4>Create a new account</h4>
       </div>
-    <form action="/register" method="POST">
+    <form class="register-form" action="/register" method="POST">
       <span>
         <label for="name"></label>
         <input type="name" placeholder="Enter Name" name="name" required />

@@ -1,7 +1,11 @@
+body {
+  background-color: rgb(6,52,52);
+}
+
 .register {
   display: flex; 
   flex-direction: column;
-  background-color: rgb(17,55,56);
+  background-color: rgb(6,52,52);
   color: #FFFFFF; 
   font-style: inherit;
 }

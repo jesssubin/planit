@@ -1,0 +1,15 @@
+
+.register {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  background-color: #0C3434;
+  color: #FFFFFF; 
+  font-style: inherit;
+}
+
+form {
+  flex-direction: column;
+  align-items: center;
+  text-align: right;
+}

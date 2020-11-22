@@ -10,7 +10,7 @@ export default function Profile (props) {
       <div class="profile">
       <link href="'https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap'" rel="stylesheet"></link>
       </div>
-      <div class="logo">
+      <div class="profile-logo">
       <img src={logo} alt="Logo" />
       </div>
       <div>

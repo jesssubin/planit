@@ -32,7 +32,7 @@ body {
 form {
   display: flex;
   flex-direction: column;
-
+  margin-top: 2em; 
 }
 
 input {
@@ -41,18 +41,19 @@ input {
   border-bottom: 3px solid white;
   background-color: rgb(6,52,52); 
   margin-bottom: 1em;
-  color: white
+  color: white; 
 
 }
 
 .submit-btn{
   font-family: "Raleway", sans-serif;
-  margin: 1em;
+  margin: 1em; 
+  font-size: 15px;
+  padding: 10px 20px;
   background-color: #fd9d00;
   border-radius: 8px;
   color: white;
-  font-size: 15px;
-  padding: 5px 10px;
+  border: none;
 }
 
 #signup {

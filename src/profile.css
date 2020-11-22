@@ -38,12 +38,13 @@ h1 {
 }
 
 .logout-btn {
-  font-size: 10px;
-  padding: 10px 24px;
+  font-size: 15px;
+  padding: 10px 20px;
   background-color: #fd9d00;
   border-radius: 8px;
   color: white;
   border: none;
+  margin-top: 2em; 
 }
 
 .logout-btn:hover {

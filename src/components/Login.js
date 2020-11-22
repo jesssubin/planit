@@ -7,7 +7,7 @@ export default function Login (props) {
     <div class="login">
       <link href="'https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap'" rel="stylesheet"></link>
       <div>
-        <img class="logo" src={logo} alt="Logo" />
+        <img class="login-logo" src={logo} alt="Logo" />
       </div>
       <div class="login-form">
         <form action="/login" method="POST">

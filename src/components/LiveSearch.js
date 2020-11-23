@@ -25,6 +25,7 @@ export default function LiveSearch(props) {
   
   return (
     <Fragment>
+     
       <header className="logo">
       </header>
       <main>

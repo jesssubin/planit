@@ -76,53 +76,64 @@ export default function Register (props) {
 
 
   return (
-    <div>
-    <form action="/register" method="POST">
-      <h1>Create New Account</h1>
-      <p>Please fill in this form</p>
-
-      <label for="full_name"></label>
-      <input type="full_name" 
-             className="form-control"
-             id="full_name"
-             placeholder="Enter Your Full Name" 
-             name="full_name" 
-             value={state.full_name}
-             onChange={handleChange}
-             required />
-
-      <label for="email"></label>
-      <input type="email" 
-             className="form-control" 
-             id="email" 
-             placeholder="Enter email" 
-             value={state.email}
-             onChange={handleChange} />
-
-      <label for="password"></label>
-      <input type="password" 
-             className="form-control" 
-             id="password" 
-             placeholder="Password"
-             value={state.password}
-             onChange={handleChange} />
-      
-      <label for="confirmPassword"></label>
-      <input type="password" 
-             className="form-control" 
-             id="confirmPassword" 
-             placeholder="Confirm Password"
-             value={state.confirmPassword}
-             onChange={handleChange} />
-
-      <button type="submit" 
-              className="btn btn-primary"
-              onClick={handleSubmitClick}>
-        Register
-      </button> 
+    <div class="register">
+      <div class="registerLogo">
+        <img src={logo} alt="Logo" />
+      </div>
+      <div class="registerHeader">
+        <h1>Create a New Account</h1>
+        <p>Please fill in the form</p>
+      </div>
+    <form class="register-form" action="/register" method="POST">
+      <span>
+        <label for="full_name"></label>
+        <input type="full_name" 
+              className="form-control"
+              id="full_name"
+              placeholder="Enter Your Name" 
+              name="full_name" 
+              value={state.full_name}
+              onChange={handleChange}
+              required />
+      </span>
+      <span>
+        <label for="email"></label>
+        <input type="email" 
+              className="form-control" 
+              id="email" 
+              placeholder="Enter Email" 
+              value={state.email}
+              onChange={handleChange} />
+      </span>
+      <span>
+        <label for="password"></label>
+        <input type="password" 
+              className="form-control" 
+              id="password" 
+              placeholder="Enter Password"
+              value={state.password}
+              onChange={handleChange} />
+      </span>
+      <span>
+        <label for="confirmPassword"></label>
+        <input type="password" 
+              className="form-control" 
+              id="confirmPassword" 
+              placeholder="Confirm Password"
+              value={state.confirmPassword}
+              onChange={handleChange} />
+      </span>
+      <div class="register-button">
+        <button type="submit" 
+                 class="register-btn"
+                onClick={handleSubmitClick}>
+          Register
+        </button> 
+      </div>
+      <div>
+        <span>Have an account? <a href="/login" id='register-login'>Sign in.</a></span>
+      </div>
     </form>
-    <a href="/login" id='register-login'>Have an account? Login in here!</a>
-
   </div>
   )
 }

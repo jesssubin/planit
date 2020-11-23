@@ -35,7 +35,7 @@ export default function Register (props) {
             "email":state.email,
             "password":state.password,
         }
-        axios.post('http://localhost:3001/api/users', userData)
+        axios.post('/api/users', userData)
             .then(function (response) {
                 if(response.status === 200){
                   console.log("axios post request has been made successfully");

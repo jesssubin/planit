@@ -1,13 +1,28 @@
+body {
+  margin-top: 2em;
+}
 .nav-bar {
   display: flex; 
   flex-direction: row;
   position: fixed;
   bottom: 0;
-  margin: 1em; 
   justify-content: space-between;
-  width: 90vw;
+  width: 100vw;
+  background-color: #063434;
+  border-top: 1px white solid; 
 }
 
 .nav-item {
   color: white; 
+  border: none; 
+}
+
+button {
+  font-size: 15px;
+  padding: 15px 20px; 
+  border: none; 
+  background-color: #063434;
+}
+i {
+  color: #ffffff
 }

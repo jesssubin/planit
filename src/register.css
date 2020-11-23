@@ -1,0 +1,52 @@
+body {
+  background-color: rgb(6,52,52);
+}
+
+.register {
+  display: flex; 
+  flex-direction: column;
+  background-color: rgb(6,52,52);
+  color: #FFFFFF; 
+  font-style: inherit;
+}
+.registerHeader{
+  display: flex; 
+  flex-direction: column; 
+  align-items:center;
+}
+.registerLogo{
+  display: flex; 
+  justify-content: center; 
+  margin-top: 3em;
+}
+
+.register-form {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  text-align: right;
+}
+
+#register-login{
+  color:#FFFFFF;
+}
+.register-button {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.register-btn {
+  font-size: 15px;
+  padding: 10px 20px;
+  background-color: #fd9d00;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  margin-bottom: 1em;
+}
+
+.register-btn:hover {
+  background-color: #fd7d00 ; /* Green */
+  color: white;
+}

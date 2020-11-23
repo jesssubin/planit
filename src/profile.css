@@ -1,0 +1,53 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background-color: rgb(6,52,52);
+}
+
+.profile {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  background-color: rgb(6,52,52);
+  color: #FFFFFF; 
+  font-style: inherit;
+}
+
+.profile-logo {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 5px #fd7d00;
+}
+
+.profile-details {
+  flex-direction: column;
+  align-items: left;
+  text-align: center;
+}
+
+.logout-button {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logout-btn {
+  font-size: 15px;
+  padding: 10px 20px;
+  background-color: #fd9d00;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  margin-top: 2em; 
+}
+
+.logout-btn:hover {
+  background-color: #fd7d00 ; /* Green */
+  color: white;
+}

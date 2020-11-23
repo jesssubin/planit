@@ -1,0 +1,15 @@
+@import "./variables";
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $font-color; 
+  background-color: $bg-color;
+}
+
+form {
+  flex-direction: column;
+}
+

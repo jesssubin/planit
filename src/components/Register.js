@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import React, { useState, PropTypes } from "react";
-import axios from 'axios'; 
-=======
-import React from "react";
+import React, { useState } from "react";
 import "../register.css"
 import logo from '../logo.png';
->>>>>>> feature/css
+import axios from 'axios'; 
 
 export default function Register (props) {
 

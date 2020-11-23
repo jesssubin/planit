@@ -5,7 +5,6 @@ import logo from '../logo.png';
 export default function Register (props) {
   return (
     <div class="register">
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
       <div class="registerLogo">
         <img src={logo} alt="Logo" />
       </div>

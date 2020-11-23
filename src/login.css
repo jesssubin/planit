@@ -18,6 +18,8 @@ body {
 .login-form{
   display: flex; 
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(6,52,52); 
 }
 
@@ -26,13 +28,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
- 
+  margin-top: 4em;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  margin-top: 2em;
 }
 
 input {
@@ -42,8 +43,9 @@ input {
   background-color: rgb(6,52,52); 
   margin-bottom: 1em;
   color: white; 
-
+  width: 50vw;
 }
+
 
 .submit-btn{
   font-family: "Raleway", sans-serif;
@@ -54,6 +56,8 @@ input {
   border-radius: 8px;
   color: white;
   border: none;
+  width: 25vw; 
+  justify-content: center;
 }
 
 #signup {

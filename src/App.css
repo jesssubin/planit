@@ -1,5 +1,6 @@
 body {
   margin-top: 2em;
+  font-family: "Raleway", sans-serif; 
 }
 .nav-bar {
   display: flex; 

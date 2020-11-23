@@ -7,6 +7,7 @@ import History from "./components/History";
 import Profile from "./components/Profile";
 import Favourites from "./components/Favourites"; 
 import PlanList from "./components/PlanList"; 
+import LiveSearch from "./components/LiveSearch"; 
 
 import "./App.css"; 
 
@@ -47,6 +48,9 @@ function App() {
         </Route>
         <Route path="/user/1/favourites">
           <Favourites />
+        </Route>
+        <Route path="/search">
+          <LiveSearch />
         </Route>
         <Route path="*">
           <Explore />

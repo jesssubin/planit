@@ -10,9 +10,11 @@ export default function LiveSearch(props) {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    // const testURL = `https://itunes.apple.com/search?term=${term}&country=CA&media=music&entity=album&attribute=artistTerm`
-    // ; 
-    const searchURL = `https://test.api.amadeus.com/v1/shopping/activities?latitude=41.397158&longitude=2.160873&radius=1`
+
+    const query="Toronto"; 
+    const API_KEY=process.env.REACT_APP_API_KEY; 
+   
+    const searchURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=${API_KEY}`
 
     axios.get(searchURL).then(response => {
       console.log(response);
@@ -24,7 +26,6 @@ export default function LiveSearch(props) {
   return (
     <Fragment>
       <header className="logo">
-        {/* <img src="images/brand.png" alt="Brand" /> */}
       </header>
       <main>
         <SearchBar onSearch={term => setTerm(term)}/>

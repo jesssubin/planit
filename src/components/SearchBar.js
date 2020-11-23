@@ -14,7 +14,7 @@ export default function SearchBar (props) {
 
   return (
     <div>
-      <h1>Explore</h1>
+      <h1>Search</h1>
       <section className="search">
         <form className="search__form" onSubmit={event => event.preventDefault()}>
           <input

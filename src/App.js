@@ -34,7 +34,7 @@ function App() {
          <Register showError={updateErrorMessage}/>
         </Route>
         <Route path="/login">
-          <Login />
+          <Login showError={updateErrorMessage} />
         </Route>
         <Route path="/user/1/plan">
           <PlanList />

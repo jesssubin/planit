@@ -21,11 +21,11 @@ function App() {
        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet" />
        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <nav class="nav-bar">
-            <a href="/"><button onClick={<Explore />}><i class="fas fa-search"></i></button></a>
-            <a href="/user/1/favourites"><button><i class="far fa-heart" onClick={<Favourites />} /></button></a>
-            <a href="/user/1/plan"><button onClick={<PlanList />}><i class="fa fa-calendar-plus"></i></button></a>
-            <a href="/user/1/history"><button onClick={<History />}><i class="fa fa-history"></i></button></a>
-            <a href="/user/1/profile"><button onClick={<Profile />}><i class="fa fa-user"></i></button></a>
+            <Link to="/"><i class="fas fa-search"></i></Link>
+            <Link to="/user/1/favourites"><i class="far fa-heart" /></Link>
+            <Link to="/user/1/plan"><i class="fa fa-calendar-plus"></i></Link>
+            <Link to="/user/1/history"><i class="fa fa-history"></i></Link>
+            <Link to="/user/1/profile"><i class="fa fa-user"></i></Link>
         </nav>
       </div>
       
@@ -46,7 +46,7 @@ function App() {
           <Profile />
         </Route>
         <Route path="/user/1/favourites">
-          <Favourites />
+          <Favourites results = {[]} />
         </Route>
         <Route path="*">
           <Explore />

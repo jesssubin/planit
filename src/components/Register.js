@@ -11,11 +11,7 @@ export default function Register (props) {
     password: "",   
     confirmPassword: ""
   })
-  
-  // constructor() {
-  //   super();
-  //   this.handler = this.handler.bind(this);
-  // }
+
 
   //update the state based on user input
   const handleChange = (event) => {
@@ -35,7 +31,7 @@ export default function Register (props) {
             "email":state.email,
             "password":state.password,
         }
-        axios.post('/api/users', userData)
+        axios.post('/api/users/register', userData)
             .then(function (response) {
                 if(response.status === 200){
                   console.log("axios post request has been made successfully");
@@ -43,7 +39,6 @@ export default function Register (props) {
                         ...prevState,
                         'successMessage' : 'Registration successful. Redirecting to home page..'
                     }))
-                    //localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
                     props.showError(null)
                 } else{
                     props.showError("Some error ocurred");

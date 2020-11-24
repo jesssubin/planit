@@ -1,9 +1,12 @@
 import React from "react";
-// import classnames from "classnames";
 
 export default function Activity (props) {
   const API_KEY = process.env.API_KEY
-  const photoURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photos[0].photo_reference}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
+  let photoURL = ''
+  
+  if (props.photos){
+    photoURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photos[0].photo_reference}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
+  } 
   
   return (
     <article>
@@ -19,17 +22,3 @@ export default function Activity (props) {
     </article>
   )
 }
-
-// export default function Album(props) {
-//   const albumInfoClass = classnames("album__info");
-
-//   return (
-//     <article className="album">
-//       <img className="album__thumbnail" src={props.artworkUrl100} alt="Album" />
-//       <div className={albumInfoClass}>
-//         <div className="album__name">{props.collectionName}</div>
-//         <div className="album__artist">{props.artistName}</div>
-//       </div>
-//     </article>
-//   );
-// }

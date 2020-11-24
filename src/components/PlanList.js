@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function PlanLlist (props) {
+export default function PlanList (props) {
   return (
     <div>
       <h1>Plan for <span>Date</span></h1>

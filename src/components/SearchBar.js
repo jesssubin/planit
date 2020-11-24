@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState, useEffect, useCallback }from "react";
 import useDebounce from "../../src/hooks/useDebounce";
 
@@ -9,17 +8,9 @@ export default function SearchBar (props) {
   const onSearch = useCallback(props.onSearch, [term]);
   console.log(onSearch, "Yikies onSearch here yee haw")
   console.log(props, "This is props")
-
-  const searchData = {params: {search: term}}
  
   useEffect(() => {
-    axios.get("/search", searchData)
-  .then(function(response){
-    console.log(response.data.results, "response data")
-    //  setValue({
-    //      result: response.data
-    //  })
-    });
+    onSearch(term);
   }, [term, onSearch]);
 
   return (

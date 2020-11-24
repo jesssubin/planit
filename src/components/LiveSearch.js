@@ -9,15 +9,21 @@ export default function LiveSearch(props) {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
 
+  const searchData = {params: {search: term}}
+
   useEffect(() => {
-    axios.get('/search').then(response => {
-      console.log("front end", response);
+    axios.get("/search", searchData)
+    .then(function(response){
+      console.log(response.data.results, "response data")
       setResults([...response.data.results])
     
     });
   }, [term])
 
+  
+ 
 
+   
   
   return (
     <Fragment>

@@ -77,13 +77,14 @@ export default function Login (props) {
              placeholder="Password"
              value={state.password}
              onChange={handleChange} />
-  
-      <button type="submit" 
-              class="submit-btn"
-              className="btn btn-primary"
-              onClick={handleSubmitClick}>
-        Login
-      </button> 
+
+      <div class="login-button">
+        <button type="submit" 
+                class="login-btn"
+                onClick={handleSubmitClick}>
+          Login
+        </button> 
+      </div>
     </form>
         <div>
           <span>Don't have an account? <a id="signup" href="/register">Sign up here!</a></span>

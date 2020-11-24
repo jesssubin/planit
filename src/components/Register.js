@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "../register.css"
 import logo from '../logo.png';
 import axios from 'axios'; 
+import { useHistory } from "react-router-dom";
 
 export default function Register (props) {
-
   const [state, setState] = useState({
     full_name: "", 
     email: "", 
@@ -44,7 +44,6 @@ export default function Register (props) {
                         'successMessage' : 'Registration successful. Redirecting to home page..'
                     }))
                     //localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
-                    // redirectToExplore();
                     props.showError(null)
                 } else{
                     props.showError("Some error ocurred");
@@ -57,17 +56,16 @@ export default function Register (props) {
         props.showError('Please enter valid name and password')    
     }   
   }
-  
-// const redirectToExplore = () => {
-//   props.updateTitle('explore')
-//   props.history.push('/');
-// }
+
+  const history = useHistory();
+  const goExplore = () => history.push('/');
   
   const handleSubmitClick = (e) => {
     e.preventDefault();
     if(state.password === state.confirmPassword) {
         saveUser()    
         console.log('user saved!');
+        goExplore()
     } else {
         props.showError('Passwords do not match')
         console.log('try again');

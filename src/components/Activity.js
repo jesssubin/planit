@@ -7,6 +7,10 @@ export default function Activity (props) {
   if (props.photos){
     photoURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photos[0].photo_reference}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
   } 
+
+  const onClick = () => {
+    console.log(props);
+  }
   
   return (
     <article>
@@ -17,7 +21,7 @@ export default function Activity (props) {
       <h5>{props.rating}</h5>
       <p>Description goes here </p>
     </div>
-    <button class="w3-button w3-block w3-dark-grey">Add to Favourites</button>
+    <button onClick={onClick} class="w3-button w3-block w3-dark-grey">Add to Favourites</button>
     </div>
     </article>
   )

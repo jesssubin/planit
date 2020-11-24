@@ -7,7 +7,7 @@ import History from "./components/History";
 import Profile from "./components/Profile";
 import Favourites from "./components/Favourites"; 
 import PlanList from "./components/PlanList"; 
-
+import ActivityDetails from "./components/ActivityDetails"; 
 import "./App.css"; 
 
 
@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   const [errorMessage, updateErrorMessage] = useState(null);
+  
   return (
     <Router>
       <div>
@@ -47,7 +48,9 @@ function App() {
           <Favourites />
         </Route>
         <Route path="/activities/1">
-          <ActivityDetails />
+          <ActivityDetails 
+
+          />
         </Route>
         <Route path="*">
           <Explore />

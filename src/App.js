@@ -18,8 +18,6 @@ function App() {
   return (
     <Router>
       <div>
-       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet" />
-       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <nav class="nav-bar">
             <a href="/"><button onClick={<Explore />}><i class="fas fa-search"></i></button></a>
             <a href="/user/1/favourites"><button><i class="far fa-heart" onClick={<Favourites />} /></button></a>
@@ -47,6 +45,9 @@ function App() {
         </Route>
         <Route path="/user/1/favourites">
           <Favourites />
+        </Route>
+        <Route path="/activities/1">
+          <ActivityDetails />
         </Route>
         <Route path="*">
           <Explore />

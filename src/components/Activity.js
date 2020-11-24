@@ -8,14 +8,14 @@ export default function Activity (props) {
   return (
     <article>
       <div class="w3-card-4">
-      <img src={photoURL} alt="restaurant"/>
-      <header class="w3-container w3-light-grey">{props.name}</header>
-      <div class="w3-container">
-      <h5>{props.rating}</h5>
-      <p>Description goes here </p>
-    </div>
-    <button class="w3-button w3-block w3-dark-grey">Add to Favourites</button>
-    </div>
+        <img src={photoURL} alt="restaurant"/>
+        <header class="w3-container w3-light-grey">{props.name}</header>
+          <div class="w3-container">
+            <h5>{props.rating}</h5>
+            <p>Description goes here </p>
+          </div>
+          <button class="w3-button w3-block w3-dark-grey">Add to Favourites</button>
+      </div>
     </article>
   )
 }

@@ -10,18 +10,19 @@ export default function LiveSearch(props) {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-
     axios.get('/search').then(response => {
-      console.log(response);
+      console.log("front end", response);
       setResults([...response.data.results])
+    
     });
   }, [term])
+
 
   
   return (
     <Fragment>
       <header className="logo">
-        {/* <img src="images/brand.png" alt="Brand" /> */}
+     
       </header>
       <main>
         <SearchBar onSearch={term => setTerm(term)}/>

@@ -47,17 +47,25 @@ input {
 }
 
 
-.submit-btn {
-  font-family: "Raleway", sans-serif;
-  margin: 1em; 
+.login-button {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login-btn {
   font-size: 15px;
   padding: 10px 20px;
   background-color: #fd9d00;
   border-radius: 8px;
   color: white;
   border: none;
-  width: 25vw; 
-  justify-content: center;
+  margin-top: 2em; 
+}
+
+.login-btn:hover {
+  background-color: #fd7d00 ; /* Green */
+  color: white;
 }
 
 #signup {

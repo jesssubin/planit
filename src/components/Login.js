@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import "../login.css"
 import logo from '../logo.png';
 import axios from 'axios';
@@ -33,7 +34,7 @@ export default function Login (props) {
                         'successMessage' : 'Login successful. Redirecting to home page..'
                     }))
                     //localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
-                    // redirectToExplore();
+                    goExplore();
                     props.showError(null)
                 } else{
                     props.showError("Some error ocurred");
@@ -46,7 +47,8 @@ export default function Login (props) {
     // } else {
     //     props.showError('Please enter valid name and password')    
     // }   
-  
+    const history = useHistory();
+    const goExplore = () => history.push('/');
 
 
   return (
@@ -75,13 +77,14 @@ export default function Login (props) {
              placeholder="Password"
              value={state.password}
              onChange={handleChange} />
-  
-      <button type="submit" 
-              class="submit-btn"
-              className="btn btn-primary"
-              onClick={handleSubmitClick}>
-        Login
-      </button> 
+
+      <div class="login-button">
+        <button type="submit" 
+                class="login-btn"
+                onClick={handleSubmitClick}>
+          Login
+        </button> 
+      </div>
     </form>
         <div>
           <span>Don't have an account? <a id="signup" href="/register">Sign up here!</a></span>

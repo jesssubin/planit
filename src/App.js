@@ -19,11 +19,11 @@ function App() {
     <Router>
       <div>
         <nav class="nav-bar">
-            <a href="/"><button onClick={<Explore />}><i class="fas fa-search"></i></button></a>
+            <a href="/"><button><i class="fas fa-search" onClick={<Explore />} /></button></a>
             <a href="/user/1/favourites"><button><i class="far fa-heart" onClick={<Favourites />} /></button></a>
-            <a href="/user/1/plan"><button onClick={<PlanList />}><i class="fa fa-calendar-plus"></i></button></a>
-            <a href="/user/1/history"><button onClick={<History />}><i class="fa fa-history"></i></button></a>
-            <a href="/user/1/profile"><button onClick={<Profile />}><i class="fa fa-user"></i></button></a>
+            <a href="/user/1/plan"><button><i class="fa fa-calendar-plus" onClick={<PlanList />} /></button></a>
+  <a href="/user/1/history"><button><i class="fa fa-history" onClick={<History />} /></button></a>
+            <a href="/user/1/profile"><button><i class="fa fa-user" onClick={<Profile />} /></button></a>
         </nav>
       </div>
       

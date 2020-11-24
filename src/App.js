@@ -20,11 +20,11 @@ function App() {
     <Router>
       <div>
         <nav class="nav-bar">
-            <a href="/"><button><i class="fas fa-search" onClick={<Explore />} /></button></a>
-            <a href="/user/1/favourites"><button><i class="far fa-heart" onClick={<Favourites />} /></button></a>
-            <a href="/user/1/plan"><button><i class="fa fa-calendar-plus" onClick={<PlanList />} /></button></a>
-            <a href="/user/1/history"><button><i class="fa fa-history" onClick={<History />} /></button></a>
-            <a href="/user/1/profile"><button><i class="fa fa-user" onClick={<Profile />} /></button></a>
+            <Link to="/"><i class="fas fa-search"></i></Link>
+            <Link to="/user/1/favourites"><i class="far fa-heart" /></Link>
+            <Link to="/user/1/plan"><i class="fa fa-calendar-plus"></i></Link>
+            <Link to="/user/1/history"><i class="fa fa-history"></i></Link>
+            <Link to="/user/1/profile"><i class="fa fa-user"></i></Link>
         </nav>
       </div>
       
@@ -45,7 +45,7 @@ function App() {
           <Profile />
         </Route>
         <Route path="/user/1/favourites">
-          <Favourites />
+          <Favourites results = {[]} />
         </Route>
         <Route path="/activities/1">
           <ActivityDetails 

@@ -6,7 +6,7 @@ import ExploreResult from "./ExploreResult";
 const axios = require('axios');
 
 export default function LiveSearch(props) {
-  const [term, setTerm] = useState("squidward");
+  const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function LiveSearch(props) {
     const query="Toronto"; 
     const API_KEY=process.env.REACT_APP_API_KEY; 
    
-    const searchURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=${API_KEY}`
+    const searchURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
 
     axios.get(searchURL).then(response => {
       console.log(response);

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import "../login.css"
 import logo from '../logo.png';
 import axios from 'axios';
@@ -33,7 +34,7 @@ export default function Login (props) {
                         'successMessage' : 'Login successful. Redirecting to home page..'
                     }))
                     //localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
-                    // redirectToExplore();
+                    goExplore();
                     props.showError(null)
                 } else{
                     props.showError("Some error ocurred");
@@ -46,7 +47,8 @@ export default function Login (props) {
     // } else {
     //     props.showError('Please enter valid name and password')    
     // }   
-  
+    const history = useHistory();
+    const goExplore = () => history.push('/');
 
 
   return (

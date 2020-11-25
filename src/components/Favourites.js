@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export default function Favourites (props) {
   
-  console.log("fav props", props)
+  
   
   return (
     <article>

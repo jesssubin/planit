@@ -26,7 +26,7 @@ export default function Activity (props) {
                       'successMessage' : 'Registration successful. Redirecting to home page..'
                   }))
                   //props.showError(null)
-              } else{
+              } else{  
                   //props.showError("Some error ocurred");
               }
           })

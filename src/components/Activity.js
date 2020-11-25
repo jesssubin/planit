@@ -1,4 +1,4 @@
-import React, { setState } from "react";
+import React, { useState } from "react";
 import axios from 'axios'; 
 
 export default function Activity (props) {
@@ -19,12 +19,13 @@ export default function Activity (props) {
       }
       axios.post('/api/activities', activityData)
           .then(function (response) {
+              console.log(response.config.data, "response after clicking fav")
               if(response.status === 200){
                 console.log("axios post request has been made successfully");
-                  setState(prevState => ({
-                      ...prevState,
-                      'successMessage' : 'Registration successful. Redirecting to home page..'
-                  }))
+                  // setState(prevState => ({
+                  //     ...prevState,
+                  //     'successMessage' : 'Registration successful. Redirecting to home page..'
+                  // }))
                   //props.showError(null)
               } else{  
                   //props.showError("Some error ocurred");
@@ -37,7 +38,7 @@ export default function Activity (props) {
   
   const onClick = () => {
     saveActivity();
-    console.log(props);
+    //console.log(props);
   }
   
   return (

@@ -7,6 +7,7 @@ import History from "./components/History";
 import Profile from "./components/Profile";
 import Favourites from "./components/Favourites"; 
 import PlanList from "./components/PlanList"; 
+import FavouritesSearch from "./components/FavouritesSearch"; 
 
 import "./App.css"; 
 
@@ -46,7 +47,7 @@ function App() {
           <Profile />
         </Route>
         <Route path="/user/1/favourites">
-          <Favourites results = {[]} />
+          <FavouritesSearch results = {[]} />
         </Route>
         <Route path="*">
           <Explore />

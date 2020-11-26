@@ -31,19 +31,17 @@ export default function AddToPlan (props) {
   }
 
 
-  const toggleFavourites = function () {
-     //call api with axios to save favorite 
-
-     //.then 
-    setIsFavorite(!isFavorite)
-  }
+  // const toggleFavourites = function () {
+  //    //call api with axios to save favorite 
+  //    //.then 
+  //   setIsFavorite(!isFavorite)
+  // }
    
-  const favoriteClass = isFavorite? "far fa-heart" : "fas fa-heart"
+  // const favoriteClass = isFavorite? "far fa-heart" : "fas fa-heart"
  
   
-  console.log("from activitydetails:",props)
+ 
   let photoURLDetail = ''
-  
   if (props.photos){
     photoURLDetail = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photos[0].photo_reference}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
   } 

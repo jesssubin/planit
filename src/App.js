@@ -23,10 +23,10 @@ function App() {
        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <nav class="nav-bar">
             <Link to="/"><i class="fas fa-search"></i></Link>
-            <Link to="/user/1/favourites"><i class="far fa-heart" /></Link>
-            <Link to="/user/1/plan"><i class="fa fa-calendar-plus"></i></Link>
-            <Link to="/user/1/history"><i class="fa fa-history"></i></Link>
-            <Link to="/user/1/profile"><i class="fa fa-user"></i></Link>
+            <Link to="/user/:id/favourites"><i class="far fa-heart" /></Link>
+            <Link to="/user/:id/plan"><i class="fa fa-calendar-plus"></i></Link>
+            <Link to="/user/:id/history"><i class="fa fa-history"></i></Link>
+            <Link to="/user/:id/profile"><i class="fa fa-user"></i></Link>
         </nav>
       </div>
       
@@ -37,16 +37,16 @@ function App() {
         <Route path="/login">
           <Login showError={updateErrorMessage} />
         </Route>
-        <Route path="/user/1/plan">
+        <Route path="/user/:id/plan">
           <PlanList />
         </Route>
-        <Route path="/user/1/history">
+        <Route path="/user/:id/history">
           <History />
         </Route>
-        <Route path="/user/1/profile">
+        <Route path="/user/:id/profile">
           <Profile />
         </Route>
-        <Route path="/user/1/favourites">
+        <Route path="/user/:id/favourites">
           <FavouritesSearch results = {[]} />
         </Route>
         <Route path="*">

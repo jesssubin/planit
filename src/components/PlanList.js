@@ -58,8 +58,39 @@ export default function PlanList (props) {
     savePlan();
   }
  
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import PlanResults from "./PlanResults";
+import PlanDetail from "./PlanDetail";
+
+export default function PlanList (props) {
+  const [plans, setPlans] = useState([]);
+  const [planDetails, setPlanDetails] = useState(false);
+
+  useEffect (() => {
+    axios.get("/api/plans")
+    .then(function(response){
+      console.log(response.data, "response data")
+      setPlans([...response.data])
+    
+    });
+  }, [])
+
+
+
+  const showPlanDetails = () => {
+    console.log("show plan details", plans, planDetails)
+    const plan = plans.find(plan => plan.id === planDetails)
+    return (
+        <PlanDetail key={props.key} {...plan} toggleDisplay={() => setPlanDetails(false)}/>
+    )
+  }
+  
 
   return (
+    <article>
+    { planDetails ? showPlanDetails() :
+    
     <div>
       <button onClick={() => setForm(true)} class="w3-button w3-block w3-dark-grey">Create a new plan!</button>
       
@@ -73,6 +104,12 @@ export default function PlanList (props) {
         <h3>Monday November 23 2020</h3>
         <img></img>
       </div>}
+      <h1>Your Plans</h1>
+      <div>
+        <PlanResults plans={plans} onClick={(id) => setPlanDetails(id)}/> 
+      </div>
     </div>
+    }
+     </article>
   );
 }

@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
+import axios from 'axios';
+import HistoryResults from "./HistoryResults";
 
 export default function History (props) {
+  const [history, setHistory] = useState([]);
+
+  useEffect (() =>{
+    axios.get("/api/plans/history")
+    .then(function(response){
+      setHistory([...response.data])
+    });
+  }, [])
+ 
+
   return (
     <div>
-      <h1>Planit</h1>
+      <h1>Your History</h1>
       <body class='container'>
       <div>
-      <p>Plan: 2019-08-12</p>
-      </div>
-      <div>
-      <p>Plan: 2019-06-10</p>
-      </div>
-      <div>
-      <p>Plan: 2019-04-12</p>
-      </div>  
-      <div>
-      <p>Plan: 2019-03-02</p>
+      <HistoryResults history={history} />
       </div>
       </body>
     </div>

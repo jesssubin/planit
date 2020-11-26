@@ -20,7 +20,7 @@ export default function Login (props) {
 
   const handleSubmitClick = (e) => {
     e.preventDefault();
-        props.showError(null);
+        //props.showError(null);
         const userData = {
             "email":state.email,
             "password":state.password,
@@ -35,9 +35,9 @@ export default function Login (props) {
                     }))
                     //localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
                     goExplore();
-                    props.showError(null)
+                    //props.showError(null)
                 } else{
-                    props.showError("Some error ocurred");
+                    //props.showError("Some error ocurred");
                 }
             })
             .catch(function (error) {

@@ -5,6 +5,7 @@ import logo from '../logo.png';
 import axios from 'axios';
 
 export default function Login (props) {
+  const [error, setError] = useState("")
   const [state, setState] = useState({ 
     email: "", 
     password: ""
@@ -25,6 +26,9 @@ export default function Login (props) {
             "email":state.email,
             "password":state.password,
         }
+        if (!userData.email || !userData.password) {
+          setError("Please enter your email and password!")
+        } else {
         axios.post('/api/users/login', userData, { withCredentials: true })
             .then(function (response) {
                 if(response.status === 200){
@@ -33,23 +37,24 @@ export default function Login (props) {
                         ...prevState,
                         'successMessage' : 'Login successful. Redirecting to home page..'
                     }))
-                    //localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
+                    setError("")
                     goExplore();
-                    //props.showError(null)
                 } else{
-                    //props.showError("Some error ocurred");
+                    console.log("error res login", response)
+                    setError("Please enter valid email and password");
                 }
+              
             })
             .catch(function (error) {
-                console.log(error);
+                setError("Invalid email or password!");
             });
-  }    
-    // } else {
-    //     props.showError('Please enter valid name and password')    
-    // }   
+      }  
+    }  
+  
     const history = useHistory();
     const goExplore = () => history.push('/');
 
+ 
 
   return (
     <div class="login">
@@ -77,7 +82,7 @@ export default function Login (props) {
              placeholder="Password"
              value={state.password}
              onChange={handleChange} />
-
+    {error && <div className="alert alert-danger"> {error} </div>}
       <div class="login-button">
         <button type="submit" 
                 class="login-btn"

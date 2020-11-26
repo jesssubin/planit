@@ -12,6 +12,7 @@ export default function Register (props) {
     confirmPassword: ""
   })
 
+  const [error, setError] = useState('')
 
   //update the state based on user input
   const handleChange = (event) => {
@@ -23,14 +24,22 @@ export default function Register (props) {
   }
   
   //send user data to backend database
-  const saveUser = () => {
-    if(state.email.length && state.password.length) {
-        props.showError(null);
+  
+  const handleSubmitClick = (e) => {
+    e.preventDefault();
+    
+  
         const userData = {
             "full_name":state.full_name,
             "email":state.email,
             "password":state.password,
         }
+        
+        if (!userData.full_name || !userData.email || !userData.password || !state.confirmPassword) {
+          setError("Please enter your name, email and password")
+        } else if (state.password !== state.confirmPassword) {
+          setError("Passwords do not match!")
+        } else {
         axios.post('/api/users/register', userData)
             .then(function (response) {
                 if(response.status === 200){
@@ -39,33 +48,25 @@ export default function Register (props) {
                         ...prevState,
                         'successMessage' : 'Registration successful. Redirecting to home page..'
                     }))
-                    props.showError(null)
+                    setError("")
                 } else{
-                    props.showError("Some error ocurred");
+    
+                    setError("Some error ocurred");
                 }
             })
             .catch(function (error) {
-                console.log(error);
+              setError("User with this email already exists!");
             });    
-    } else {
-        props.showError('Please enter valid name and password')    
-    }   
+        }   
+    
   }
+
+
 
   const history = useHistory();
   const goExplore = () => history.push('/');
   
-  const handleSubmitClick = (e) => {
-    e.preventDefault();
-    if(state.password === state.confirmPassword) {
-        saveUser()    
-        console.log('user saved!');
-        goExplore()
-    } else {
-        props.showError('Passwords do not match')
-        console.log('try again');
-    }
-}
+
 
 
   return (
@@ -87,7 +88,7 @@ export default function Register (props) {
               name="full_name" 
               value={state.full_name}
               onChange={handleChange}
-              required />
+               />
       </span>
       <span>
         <label for="email"></label>
@@ -96,7 +97,8 @@ export default function Register (props) {
               id="email" 
               placeholder="Enter Email" 
               value={state.email}
-              onChange={handleChange} />
+              onChange={handleChange} 
+               />
       </span>
       <span>
         <label for="password"></label>
@@ -105,7 +107,8 @@ export default function Register (props) {
               id="password" 
               placeholder="Enter Password"
               value={state.password}
-              onChange={handleChange} />
+              onChange={handleChange} 
+              />
       </span>
       <span>
         <label for="confirmPassword"></label>
@@ -114,8 +117,10 @@ export default function Register (props) {
               id="confirmPassword" 
               placeholder="Confirm Password"
               value={state.confirmPassword}
-              onChange={handleChange} />
+              onChange={handleChange} 
+              />
       </span>
+      {error && <div className="alert alert-danger"> {error} </div>}
       <div class="register-button">
         <button type="submit" 
                  class="register-btn"
@@ -123,10 +128,12 @@ export default function Register (props) {
           Register
         </button> 
       </div>
+      
       <div>
         <span>Have an account? <a href="/login" id='register-login'>Sign in.</a></span>
       </div>
     </form>
+    
   </div>
   )
 }

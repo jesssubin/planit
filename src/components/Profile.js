@@ -16,8 +16,21 @@ export default function Profile (props) {
           setUser(response.data); 
         })
   },[])
+
+  const logoutUser = () => {
+    axios.post('/api/users/logout')
+    .then(function (response) {
+      //response should be null
+      console.log("response from logout", response.data)
+      setUser(response.data)
+    })
+  }
   
-  
+  const handleSubmitClick = (e) => {
+    e.preventDefault();
+    logoutUser();
+  }
+
   const showLogin = () => {
     // e.preventDefault();
     return (
@@ -40,7 +53,10 @@ export default function Profile (props) {
         <p>Email: {user.email}</p>
       </div>
       <div class="logout-button">
-      <button type="submit" id="logout" class="logout-btn">Logout</button>
+      <button type="submit" 
+              id="logout" 
+              class="logout-btn" 
+              onClick={handleSubmitClick}>Logout</button>
       </div>
     </div>}
     </body>

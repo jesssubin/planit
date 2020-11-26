@@ -12,7 +12,7 @@ export default function History (props) {
       setHistory([...response.data])
     });
   }, [])
-  console.log(history)
+ 
 
   return (
     <div>

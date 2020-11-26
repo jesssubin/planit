@@ -32,7 +32,7 @@ export default function PlanList (props) {
     { planDetails ? showPlanDetails() :
     
     <div>
-      <h1>Plan for <span>Date</span></h1>
+      <h1>Your Plans</h1>
       <div>
         <PlanResults plans={plans} onClick={(id) => setPlanDetails(id)}/> 
       </div>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Activity from "./Activity";
 import axios from 'axios'
 import FavouritesResult from './FavouritesResult'; 
 

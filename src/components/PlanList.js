@@ -1,17 +1,25 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import PlanResults from "./PlanResults";
 
 export default function PlanList (props) {
+  const [plans, setPlans] = useState([]);
+
+  useEffect (() =>{
+    axios.get("/api/plans")
+    .then(function(response){
+      console.log(response.data, "response data")
+      setPlans([...response.data])
+    
+    });
+  }, [])
+console.log(plans, "planslist")
+
   return (
     <div>
       <h1>Plan for <span>Date</span></h1>
       <div>
-        <h3>Tuesday November 17 2020</h3>
-        <img></img>
-        <h3>Friday November 20 2020</h3>
-        <img></img>
-        <h3>Monday November 23 2020</h3>
-        <img></img>
+        <PlanResults plans={plans} /> 
       </div>
     </div>
   );

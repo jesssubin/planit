@@ -4,10 +4,7 @@ import useDebounce from "../../src/hooks/useDebounce";
 export default function SearchBar (props) {
   const [value, setValue] = useState("");
   const term = useDebounce(value, 400);
-  console.log(term, "This is a term wow")
   const onSearch = useCallback(props.onSearch, [term]);
-  console.log(onSearch, "Yikies onSearch here yee haw")
-  console.log(props, "This is props")
  
   useEffect(() => {
     onSearch(term);

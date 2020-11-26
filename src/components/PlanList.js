@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import axios from 'axios'; 
 import PlanDetail from "./PlanDetail";
@@ -8,12 +8,28 @@ import "react-datepicker/dist/react-datepicker.css";
 export default function PlanList (props) {
   const [form, setForm] = useState(false)
   const [startDate, setStartDate] = useState(new Date());
-  
+  const [state, setState] = useState(""); 
+
+  const handleChange = (event) => {
+    const { id, value } = event.target
+    setState(prev => ({
+      ...prev, 
+      [id] : value
+    }))
+  }
+
   const showForm = () => {
     console.log("show form: ", startDate)
     return (
       <div> 
        <form id= "add-app">
+       <input type="name"
+              id="name"
+              placeholder="Name your day plan" 
+              name="name" 
+              value={state.name}
+              onChange={handleChange}
+               />
           <label>Date </label>
           <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
           <button onClick={onClick}>Create</button>
@@ -24,8 +40,10 @@ export default function PlanList (props) {
   
   const savePlan = () => {
     const planDate = {
+      "name": state.name,
       "date": startDate
     }; //somehow save date in this
+    console.log(planDate)
     axios.post('/api/plans', planDate)
     .then(function(response) {
       console.log("res:", response)

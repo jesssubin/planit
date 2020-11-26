@@ -1,5 +1,5 @@
 
-import React, { useState, setState } from "react";
+import React, { useState, setState, useEffect } from "react";
 import { render} from 'react-dom';
 import axios from 'axios'; 
 import TimeRangeSlider from 'react-time-range-slider';
@@ -7,7 +7,8 @@ import TimeRangeSlider from 'react-time-range-slider';
    
 export default function AddToPlan (props) {
 
-  const [isFavorite, setIsFavorite] = useState(false); 
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [plan, setPlan] = useState([]);  
 
   const [state, setState] = useState({
       value : {
@@ -15,7 +16,14 @@ export default function AddToPlan (props) {
         end: "23:59"
       }
   });
-
+  
+  useEffect(() => {
+    axios.get("/api/plans")
+    .then(function(response){
+      console.log("response: ", response)
+      setPlan([...response.data])
+    });
+  }, [])  
 
   const changeStartHandler = (time) => {
     console.log("Start Handler Called", time);
@@ -38,9 +46,9 @@ export default function AddToPlan (props) {
   // }
    
   // const favoriteClass = isFavorite? "far fa-heart" : "fas fa-heart"
- 
-  
- 
+
+  const planlist = (plans => key={plan.plan_id} {...plan}
+
   let photoURLDetail = ''
   if (props.photos){
     photoURLDetail = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photos[0].photo_reference}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
@@ -51,19 +59,23 @@ export default function AddToPlan (props) {
       <h1>{props.name}</h1>
       <form id= "add-app">
         <label>Date </label>
+        <select>
+
+        </select>
+  
         <label>Time</label>
         <div>
             <TimeRangeSlider
-                disabled={false}
-                format={24}
-                maxValue={"23:59"}
-                minValue={"00:00"}
-                name={"time_range"}
-                onChangeStart={time => changeStartHandler(time)}
-                onChangeComplete={time => changeCompleteHandler(time)}
-                onChange={time => timeChangeHandler(time)}
-                step={15}
-                value={state.value}/>
+              disabled={false}
+              format={24}
+              maxValue={"23:59"}
+              minValue={"00:00"}
+              name={"time_range"}
+              onChangeStart={time => changeStartHandler(time)}
+              onChangeComplete={time => changeCompleteHandler(time)}
+              onChange={time => timeChangeHandler(time)}
+              step={15}
+              value={state.value}/>
         </div>
        
         

@@ -14,9 +14,7 @@ export default function LiveSearch(props) {
   useEffect(() => {
     axios.get("/search", searchData)
     .then(function(response){
-      console.log(response.data.results, "response data")
       setResults([...response.data.results])
-    
     });
   }, [term])
 

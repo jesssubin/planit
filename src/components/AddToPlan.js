@@ -9,44 +9,34 @@ export default function AddToPlan (props) {
 
   const [isFavorite, setIsFavorite] = useState(false); 
 
-  const [value, setValue] = useState({
-    start: "00:00",
-    end: "23:59"
-      });
-  // constructor(props) {
-  //   super(props);
-  //   this.featureRef = React.createRef();
-  //   this.changeStartHandler = this.changeStartHandler.bind(this);
-  //   this.timeChangeHandler = this.timeChangeHandler.bind(this);
-  //   this.changeCompleteHandler = this.changeCompleteHandler.bind(this);
-  //   this.state = {
-  //       value: {
-  //           start: "00:00",
-  //           end: "23:59"
-  //       }
-  //   }
-  // }
-
-    const changeStartHandler = (time) => {
-        console.log("Start Handler Called", time);
-    }
-
-    const timeChangeHandler = (time) => {
-        console.log(time)
-        setValue({time});
-    }
-
-    const changeCompleteHandler = (time) => {
-        console.log("Complete Handler Called", time);
-    }
+  const [state, setState] = useState({
+      value : {
+        start: "00:00",
+        end: "23:59"
+      }
+  });
 
 
-   const toggleFavourites = function () {
+  const changeStartHandler = (time) => {
+    console.log("Start Handler Called", time);
+  }
+
+  const timeChangeHandler = (time) => {
+    console.log(time)
+    setState({...state, value: time});
+  }
+
+  const changeCompleteHandler = (time) => {
+    console.log("Complete Handler Called", time);
+  }
+
+
+  const toggleFavourites = function () {
      //call api with axios to save favorite 
 
      //.then 
-     setIsFavorite(!isFavorite)
-   }
+    setIsFavorite(!isFavorite)
+  }
    
   const favoriteClass = isFavorite? "far fa-heart" : "fas fa-heart"
  
@@ -75,7 +65,7 @@ export default function AddToPlan (props) {
                 onChangeComplete={time => changeCompleteHandler(time)}
                 onChange={time => timeChangeHandler(time)}
                 step={15}
-                value={value}/>
+                value={state.value}/>
         </div>
        
         

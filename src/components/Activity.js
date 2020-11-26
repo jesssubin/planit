@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'; 
-import ActivityDetails from './ActivityDetails'; 
+import AddToPlan from './AddToPlan'; 
 
 export default function Activity (props) {
   const [details, setDetails] = useState(false)
@@ -46,7 +46,7 @@ export default function Activity (props) {
   const showDetails = () => {
     // e.preventDefault();
     return (
-        <ActivityDetails {...props} toggleDisplay={() => setDetails(false)}/>
+        <AddToPlan {...props} toggleDisplay={() => setDetails(false)}/>
 
     )
   }
@@ -60,7 +60,7 @@ export default function Activity (props) {
         <div class="w3-container">
           <h5>{props.rating}</h5>
         </div>
-        <button onClick={() => setDetails(true)} class="w3-button w3-block w3-dark-grey">See Details </button>
+        <button onClick={() => setDetails(true)} class="w3-button w3-block w3-dark-grey"> Add to Plan </button>
         <button onClick={onClick} class="w3-button w3-block w3-dark-grey">Add to Favourites </button>
       </div>}
     </article>

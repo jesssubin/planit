@@ -9,6 +9,6 @@ export default function PlanResults (props) {
 
 
 return plans.map(plan => {
-  return <PlanDates key={plan.id} {...plan} />
+  return <PlanDates onClick={() => props.onClick(plan.id)} key={plan.id} {...plan} />
  })
 }

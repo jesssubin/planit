@@ -16,6 +16,7 @@ export default function AddToPlan (props) {
   });
 
   const [chosenPlan, setChosenPlan] = useState()
+  const options = plan.map(plan => <option key={plan.id} value={plan.id}>{plan.name}</option>)
   
   useEffect(() => {
     axios.get("/api/plans")
@@ -23,6 +24,8 @@ export default function AddToPlan (props) {
      
       setPlan([...response.data])
     });
+
+  
   }, [])  
 
   const changeStartHandler = (time) => {
@@ -37,7 +40,7 @@ export default function AddToPlan (props) {
     console.log("TELL ME THE TIME: ", time);
   }
     
-  const options = plan.map(plan => <option key={plan.id} value={plan.id}>{plan.name}</option>)
+
   console.log("These are your options: ", options) 
 
 
@@ -65,7 +68,7 @@ export default function AddToPlan (props) {
         .then(function (response) {
           console.log(response.config.data, "response from timeslot")
             if(response.status === 200){
-              console.log("axios post request has been made successfully");
+              console.log("axios post request has been made successfully", response);
                 // setState(prevState => ({
                 //     ...prevState,
                 //     'successMessage' : 'Registration successful. Redirecting to home page..'
@@ -118,6 +121,7 @@ export default function AddToPlan (props) {
       <div>
         <label>Date </label>
         <select value={chosenPlan} onChange={(event) => planChangeHandler(event.target.value)}>
+          <option key={1000} value="select" selected> Select plans </option>
           {options}
         </select>
         

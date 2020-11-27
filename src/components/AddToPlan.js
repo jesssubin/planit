@@ -50,12 +50,14 @@ export default function AddToPlan (props) {
     let endTime = enTime.replace(":", ".");
     endTime = parseFloat(endTime);
     // props.showError(null);
+
+    let planId = parseFloat(chosenPlan);
     
     const activityData = {
       "name":props.name,
       "address":props.formatted_address, 
       "types":props.types[0],
-      "plan": chosenPlan,
+      "plan": planId,
       "start_time": startTime,
       "end_time": endTime
     }

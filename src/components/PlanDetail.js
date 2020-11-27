@@ -22,14 +22,16 @@ export default function PlanDetail (props) {
      const plan = {
        planId: props.id
     }
-    axios.get('/api/timeslots/planlist', plan)
+    console.log("PLAN HERE: ", plan)
+
+    axios.post('/api/timeslots/planlist', plan)
     .then(function(response) {
       console.log(response.data)
       setTimeslots([...response.data])
     })
   }, [])
   
- 
+  console.log("plan summary sending this;", timeslots)
 
   return (
     <div>

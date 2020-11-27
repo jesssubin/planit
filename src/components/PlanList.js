@@ -67,7 +67,7 @@ export default function PlanList (props) {
       console.log(response.data, "response data")
       setPlans([...response.data])
     });
-  }, [])
+  }, [planDetails])
 
   const showPlanDetails = () => {
     console.log("show plan details", plans, planDetails)

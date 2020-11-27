@@ -1,29 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import PlanSummary from "./PlanSummary";
 
 export default function PlanDetail (props) {
-  console.log(props, "detail plan - want only 1 here")
-
+  const [timeslots, setTimeslots] = useState([]); 
+  //console.log(props)
   
 
   const archivePlan = () => {
     const planData = {
       planId: props.id
     }
-    axios.post('/api/plans', planData)
+    axios.post('/api/plans/archive', planData)
     .then(function(response) {
        
     })
     props.toggleDisplay() 
   }
 
+  // useEffect (() =>{
+  //    const plan = {
+  //      planId: props.id
+  //   }
+  //   axios.get('/api/timeslots/planlist', plan)
+  //   .then(function(response) => {
+  //     console.log(response.data)
+  //     setTimeslots([...response.data])
+  //   })
+  // }, [])
+  
  
 
   return (
     <div>
       <h1>Your Trip Summary for {props.date}</h1>
-        
+        <div> <PlanSummary timeslots={timeslots} plan={props.id}/> </div>
         <button onClick={archivePlan} class="w3-button w3-block w3-dark-grey">Archive this Plan </button>
         <button onClick={props.toggleDisplay} class="w3-button w3-block w3-dark-grey">Back to all Plans </button>
     </div>

@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-
+import TimeRangeSlider from 'react-time-range-slider';
 
 export default function PlanTimeslots (props) {
   console.log("props from plantimeslot", props)
   const [activityInfo, setActivityInfo] = useState({}); 
+  const [edit, setEdit] = useState(false)
+  console.log("edit is", edit)
+  const [timeRange, setTimeRange] = useState({
+    start: "00:00",
+    end: "23:59"
+  });
 
   const onClickEdit = () => {
-
+    setEdit(true)
   }
 
   const onClickDelete = () => {
@@ -28,13 +34,43 @@ export default function PlanTimeslots (props) {
    }
    axios.post('/api/timeslots/activities', activityId)
    .then(function(response) {
-     console.log("activty.data fro mtimselots: ", response.data)
+    
     setActivityInfo({...response.data})
    })
- }, [])
- console.log("this is activity info", activityInfo)
- 
+ }, [props.activity_id])
 
+ const changeStartHandler = (time) => {
+   
+}
+
+const timeChangeHandler = (time) => {
+  setTimeRange(time);
+}
+
+const changeCompleteHandler = (time) => {
+  console.log("TELL ME THE TIME: ", time);
+}
+const onClickSubmitEdit = () => {
+  let strtTime = timeRange.start; 
+  let startTime = strtTime.replace(":", ".");
+  startTime = parseFloat(startTime)
+
+  let enTime = timeRange.end; 
+  let endTime = enTime.replace(":", ".");
+  endTime = parseFloat(endTime);
+  const timeslotData = {
+    "id":props.id,
+    "start_time": startTime,
+    "end_time": endTime
+  }
+  axios.post('/api/timeslots/update', timeslotData)
+  .then(function (response) {
+    console.log(response.config.data, "response from timeslot")
+  })
+  .catch(function (error) {
+    console.log(error);
+  });    
+}
   
   return (
     <article>
@@ -44,11 +80,25 @@ export default function PlanTimeslots (props) {
 
         <h5>Start: {props.start_time}</h5>
         <h5>End: {props.end_time}</h5>
-   
+        {edit ?  
+        <div>
+            <TimeRangeSlider
+              disabled={false}
+              format={24}
+              maxValue={"23:59"}
+              minValue={"00:00"}
+              name={"time_range"}
+              onChangeStart={time => changeStartHandler(time)}
+              onChangeComplete={time => changeCompleteHandler(time)}
+              onChange={time => timeChangeHandler(time)}
+              step={15}
+              value={timeRange}/>
+        </div> : null }
         <h5>{activityInfo[0] ? activityInfo[0].name : null}</h5>
         <h5>{activityInfo[0] ? activityInfo[0].address : null}</h5>
-
-        <button onClick={onClickEdit} class="w3-button w3-block w3-dark-grey"> Edit </button>
+        { edit ? 
+        <button onClick={onClickSubmitEdit} class="w3-button w3-block w3-dark-grey"> Submit New Time </button>
+        :  <button onClick={onClickEdit} class="w3-button w3-block w3-dark-grey"> Edit Time </button>}
         <button onClick={onClickDelete} class="w3-button w3-block w3-dark-grey"> Delete </button>
       </div>
     </div>

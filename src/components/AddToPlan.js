@@ -1,5 +1,5 @@
 
-import React, { useState, setTimeRange, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { render} from 'react-dom';
 import axios from 'axios'; 
 import TimeRangeSlider from 'react-time-range-slider';

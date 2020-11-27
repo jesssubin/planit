@@ -4,6 +4,7 @@ import axios from 'axios';
 import PlanDetail from "./PlanDetail";
 import PlanResults from "./PlanResults";
 import "react-datepicker/dist/react-datepicker.css";
+import { useHistory } from "react-router-dom";
 
 export default function PlanList (props) {
   const [form, setForm] = useState(false)
@@ -11,6 +12,7 @@ export default function PlanList (props) {
   const [state, setState] = useState("");
   const [plans, setPlans] = useState([]); 
   const [planDetails, setPlanDetails] = useState(false); 
+  const history = useHistory();
 
   const handleChange = (event) => {
     const { id, value } = event.target
@@ -50,6 +52,7 @@ export default function PlanList (props) {
     axios.post('/api/plans/plan', planDate)
     .then(function(response) {
       console.log("res:", response)
+      history.push('/'); 
     })
     .catch(function (error) {
       console.log("error:", error);
@@ -67,7 +70,7 @@ export default function PlanList (props) {
       console.log(response.data, "response data")
       setPlans([...response.data])
     });
-  }, [])
+  }, [planDetails])
 
   const showPlanDetails = () => {
     console.log("show plan details", plans, planDetails)

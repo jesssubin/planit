@@ -11,8 +11,17 @@ export default function PlanTimeslots (props) {
   }
 
   const onClickDelete = () => {
-
+    console.log("clickdelter", props.id)
+    const timeslotData = {
+      id: props.id
+    }
+    axios.post('/api/timeslots/delete', timeslotData)
+    .then(function(response) {
+       console.log("delete res", response)
+    })
+    
   }
+
   useEffect (() =>{
     const activityId = {
       id: props.activity_id

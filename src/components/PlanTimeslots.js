@@ -6,11 +6,31 @@ export default function PlanTimeslots (props) {
   console.log("props from plantimeslot", props)
   const [activityInfo, setActivityInfo] = useState({}); 
   const [edit, setEdit] = useState(false)
-  console.log("edit is", edit)
+  
+  let startTimeRange = props.start_time.toString().replace('.', ':')
+  let endTimeRange = props.end_time.toString().replace('.', ':')
+  if (startTimeRange.length === 2 ) {
+    startTimeRange = startTimeRange+ ":00"
+  } else if (startTimeRange.length === 1) {
+    startTimeRange = "00:00"
+  }
+  if (endTimeRange.length === 2 ) {
+    endTimeRange = endTimeRange + ":00"
+  }
+  
+  console.log(startTimeRange, endTimeRange)
   const [timeRange, setTimeRange] = useState({
-    start: "00:00",
-    end: "23:59"
+    start: startTimeRange,
+    end: endTimeRange
   });
+  
+  const [startTime, setStartTime] = useState(props.start_time)
+  const [endTime, setEndTime] = useState(props.end_time)
+  useEffect (() => {
+    setStartTime(timeRange.start)
+    setEndTime(timeRange.end)
+  }, [edit])
+
 
   const onClickEdit = () => {
     setEdit(true)
@@ -48,7 +68,7 @@ const timeChangeHandler = (time) => {
 }
 
 const changeCompleteHandler = (time) => {
-  console.log("TELL ME THE TIME: ", time);
+  
 }
 const onClickSubmitEdit = () => {
   let strtTime = timeRange.start; 
@@ -70,6 +90,7 @@ const onClickSubmitEdit = () => {
   .catch(function (error) {
     console.log(error);
   });    
+  setEdit(false)
 }
   
   return (
@@ -78,8 +99,8 @@ const onClickSubmitEdit = () => {
         <header class="w3-container w3-light-grey"> </header>
       <div class="w3-container">
 
-        <h5>Start: {props.start_time}</h5>
-        <h5>End: {props.end_time}</h5>
+        <h5>Start: {startTime}</h5>
+        <h5>End: {endTime}</h5>
         {edit ?  
         <div>
             <TimeRangeSlider

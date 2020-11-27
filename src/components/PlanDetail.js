@@ -18,16 +18,16 @@ export default function PlanDetail (props) {
     props.toggleDisplay() 
   }
 
-  // useEffect (() =>{
-  //    const plan = {
-  //      planId: props.id
-  //   }
-  //   axios.get('/api/timeslots/planlist', plan)
-  //   .then(function(response) => {
-  //     console.log(response.data)
-  //     setTimeslots([...response.data])
-  //   })
-  // }, [])
+  useEffect (() =>{
+     const plan = {
+       planId: props.id
+    }
+    axios.get('/api/timeslots/planlist', plan)
+    .then(function(response) {
+      console.log(response.data)
+      setTimeslots([...response.data])
+    })
+  }, [])
   
  
 

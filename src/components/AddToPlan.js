@@ -36,10 +36,12 @@ export default function AddToPlan (props) {
   const changeCompleteHandler = (time) => {
     console.log("TELL ME THE TIME: ", time);
   }
+    
+  const options = plan.map(plan => <option key={plan.id} value={plan.id}>{plan.name}</option>)
+  console.log("These are your options: ", options) 
 
-  const options = plan.map(plan => <option key={plan.id} value={plan.id} >{plan.name}</option>)
-  
-  const saveTimespot = () => {
+
+  const saveActivity = () => {
     let strtTime = timeRange.start; 
     let startTime = strtTime.replace(":", ".");
     startTime = parseFloat(startTime)
@@ -47,35 +49,19 @@ export default function AddToPlan (props) {
     let enTime = timeRange.end; 
     let endTime = enTime.replace(":", ".");
     endTime = parseFloat(endTime);
-    
-    const timespot = {
-      "plan": plan.id,
-      "start_time": startTime,
-      "end_time": endTime,
-      "activity": timeRange
-    }; 
-    console.log(timespot)
-    console.log(timeRange)
-    
-    axios.post('/api/timeslots/timeslot', timespot)
-    .then(function(response) {
-      console.log("res:", response)
-    })
-    .catch(function (error) {
-      console.log("error:", error);
-  }); 
-  }
-
-  const saveActivity = () => {
     // props.showError(null);
+    
     const activityData = {
       "name":props.name,
       "address":props.formatted_address, 
-      "types":props.types[0]
+      "types":props.types[0],
+      "plan": chosenPlan,
+      "start_time": startTime,
+      "end_time": endTime
     }
     axios.post('/api/timeslots', activityData)
         .then(function (response) {
-            console.log(response.config.data, "response from timeslot")
+          console.log(response.config.data, "response from timeslot")
             if(response.status === 200){
               console.log("axios post request has been made successfully");
                 // setState(prevState => ({
@@ -119,7 +105,7 @@ export default function AddToPlan (props) {
   } 
 
   const planChangeHandler = (planId) => {
-    console.log(planId)
+    console.log("plan change handler", planId)
     setChosenPlan(planId);
   }
   
@@ -129,7 +115,7 @@ export default function AddToPlan (props) {
       <img src={photoURLDetail} alt="restaurant" />
       <div>
         <label>Date </label>
-        <select onChange={chosenPlan => planChangeHandler(chosenPlan)}>
+        <select value={chosenPlan} onChange={(event) => planChangeHandler(event.target.value)}>
           {options}
         </select>
         

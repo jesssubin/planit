@@ -13,6 +13,7 @@ export default function Register (props) {
   })
 
   const [error, setError] = useState('')
+  const history = useHistory();
 
   //update the state based on user input
   const handleChange = (event) => {
@@ -49,6 +50,7 @@ export default function Register (props) {
                         'successMessage' : 'Registration successful. Redirecting to home page..'
                     }))
                     setError("")
+                    history.push('/login'); 
                 } else{
     
                     setError("Some error ocurred");
@@ -63,7 +65,7 @@ export default function Register (props) {
 
 
 
-  const history = useHistory();
+ 
   const goExplore = () => history.push('/');
   
 

@@ -47,11 +47,13 @@ export default function AddToPlan (props) {
   const saveActivity = () => {
     let strtTime = timeRange.start; 
     let startTime = strtTime.replace(":", ".");
-    startTime = parseFloat(startTime)
-  
+    startTime = parseFloat(startTime) * 100
+    startTime = Math.round(startTime); 
+
     let enTime = timeRange.end; 
     let endTime = enTime.replace(":", ".");
-    endTime = parseFloat(endTime);
+    endTime = parseFloat(endTime) * 100;
+    endTime = Math.round(endTime); 
     // props.showError(null);
 
     let planId = parseFloat(chosenPlan);

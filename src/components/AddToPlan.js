@@ -47,11 +47,13 @@ export default function AddToPlan (props) {
   const saveActivity = () => {
     let strtTime = timeRange.start; 
     let startTime = strtTime.replace(":", ".");
-    startTime = parseFloat(startTime)
+    startTime = parseFloat(startTime) * 100
+    startTime = Math.round(startTime)
   
     let enTime = timeRange.end; 
     let endTime = enTime.replace(":", ".");
-    endTime = parseFloat(endTime);
+    endTime = parseFloat(endTime) * 100;
+    endTime = Math.round(endTime)
     // props.showError(null);
 
     let planId = parseFloat(chosenPlan);
@@ -64,6 +66,7 @@ export default function AddToPlan (props) {
       "start_time": startTime,
       "end_time": endTime
     }
+    console.log(activityData, "going into save activity post")
     axios.post('/api/timeslots', activityData)
         .then(function (response) {
           console.log(response.config.data, "response from timeslot")

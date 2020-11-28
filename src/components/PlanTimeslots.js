@@ -6,26 +6,15 @@ export default function PlanTimeslots (props) {
   console.log("props from plantimeslot", props)
   const [activityInfo, setActivityInfo] = useState({}); 
   const [edit, setEdit] = useState(false)
-  
-  let startTimeRange = props.start_time.toString().replace('.', ':')
-  let endTimeRange = props.end_time.toString().replace('.', ':')
-  if (startTimeRange.length === 2 ) {
-    startTimeRange = startTimeRange+ ":00"
-  } else if (startTimeRange.length === 1) {
-    startTimeRange = "00:00"
-  }
-  if (endTimeRange.length === 2 ) {
-    endTimeRange = endTimeRange + ":00"
-  }
-  
-  console.log(startTimeRange, endTimeRange)
-  const [timeRange, setTimeRange] = useState({
-    start: startTimeRange,
-    end: endTimeRange
-  });
-  
   const [startTime, setStartTime] = useState(props.start_time)
   const [endTime, setEndTime] = useState(props.end_time)
+  
+
+  const [timeRange, setTimeRange] = useState({
+    start: startTime,
+    end: endTime
+  });
+ 
   useEffect (() => {
     setStartTime(timeRange.start)
     setEndTime(timeRange.end)
@@ -86,11 +75,13 @@ const changeCompleteHandler = (time) => {
 const onClickSubmitEdit = () => {
   let strtTime = timeRange.start; 
   let startTime = strtTime.replace(":", ".");
-  startTime = parseFloat(startTime)
+  startTime = parseFloat(startTime) * 100
+  startTime = Math.round(startTime); 
 
   let enTime = timeRange.end; 
   let endTime = enTime.replace(":", ".");
-  endTime = parseFloat(endTime);
+  endTime = parseFloat(endTime) * 100;
+  endTime = Math.round(endTime); 
   const timeslotData = {
     "id":props.id,
     "start_time": startTime,

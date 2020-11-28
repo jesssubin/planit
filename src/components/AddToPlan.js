@@ -126,6 +126,9 @@ export default function AddToPlan (props) {
         </select>
         
         <label>Time</label>
+        <p>From: {timeRange.start} </p>
+        <p>To: {timeRange.end}</p>
+        
         <div>
             <TimeRangeSlider
               disabled={false}

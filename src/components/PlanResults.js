@@ -11,7 +11,7 @@ export default function PlanResults (props) {
   } else {
     return (
       <div>
-        You have no plans! Click here to make one.
+        You have no plans! Click above to make one.
       </div>
     )
   }

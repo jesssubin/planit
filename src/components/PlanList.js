@@ -79,7 +79,7 @@ export default function PlanList (props) {
         <PlanDetail key={props.key} {...plan} toggleDisplay={() => setPlanDetails(false)}/>
     )
   }
-
+console.log("PLANSS!!!!", plans)
 return (
   <article>
   { planDetails ? showPlanDetails() :
@@ -88,10 +88,11 @@ return (
     {form ? showForm() : 
     <div>
       <button onClick={() => setForm(true)} class="w3-button w3-block w3-dark-grey">Create a new plan!</button>
+      {plans ?    
       <div>
-
         <PlanResults plans={plans} onClick={(id) => setPlanDetails(id)}/> 
-      </div>
+      </div> : null}
+   
       </div>
     } 
     </div>

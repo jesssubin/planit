@@ -8,7 +8,7 @@ export default function PlanSummary (props) {
 
   if (timeslots.length > 0 ) {
   return timeslots.map(timeslot => {
-    return <PlanTimeslots key={timeslot.id} {...timeslot} />
+    return <PlanTimeslots key={timeslot.id} {...timeslot} setTimeslots={props.setTimeslots}/>
   });
   } else {
     return <p>Once you add activities to your plan they'll appear here"</p>

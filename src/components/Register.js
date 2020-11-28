@@ -50,7 +50,7 @@ export default function Register (props) {
                         'successMessage' : 'Registration successful. Redirecting to home page..'
                     }))
                     setError("")
-                    // location.reload()
+                    props.setUser(response.data) 
                     history.push('/plan')
                     //goToPlan(); 
                     

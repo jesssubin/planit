@@ -58,7 +58,7 @@ export default function AddToPlan (props) {
     
     const activityData = {
       "name":props.name,
-      "address":props.formatted_address, 
+      "address":props.address, 
       "types":props.types[0],
       "plan": planId,
       "start_time": startTime,
@@ -105,11 +105,6 @@ export default function AddToPlan (props) {
   const favoriteClass = isFavorite? "far fa-heart" : "fas fa-heart"
 
 
-  let photoURLDetail = ''
-  if (props.photos){
-    photoURLDetail = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photos[0].photo_reference}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
-  } 
-
   const planChangeHandler = (planId) => {
     console.log("plan change handler", planId)
     setChosenPlan(planId);
@@ -118,7 +113,6 @@ export default function AddToPlan (props) {
   return (
     <div>
       <h1>{props.name}</h1>
-      <img src={photoURLDetail} alt="restaurant" />
       <div>
         <label>Date </label>
         <select value={chosenPlan} onChange={(event) => planChangeHandler(event.target.value)}>

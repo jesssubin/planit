@@ -31,6 +31,7 @@ export default function Login (props) {
         } else {
         axios.post('/api/users/login', userData, { withCredentials: true })
             .then(function (response) {
+              console.log("respsonse status after login:", response.status)
                 if(response.status === 200){
                   console.log("axios get request has been made successfully", response);
                     setState(prevState => ({
@@ -38,7 +39,7 @@ export default function Login (props) {
                         'successMessage' : 'Login successful. Redirecting to home page..'
                     }))
                     setError("")
-                    props.setUser(true) 
+                    props.setUser(response.data) 
                     goExplore();
                 } else{
                     console.log("error res login", response)

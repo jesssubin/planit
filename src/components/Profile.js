@@ -5,24 +5,24 @@ import Login from './Login';
 import axios from 'axios'; 
 
 export default function Profile (props) {
-
   
-  const [ user, setUser ] = useState(); 
+  console.log("props from profile", props)
+  // const [ user, setUser ] = useState(); 
   
-  useEffect(()=> {
-    axios.get('/api/users/loggedin', { withCredentials: true }) 
-        .then(function(response) {
-          console.log("get user respsonse", response)   
-          setUser(response.data); 
-        })
-  },[])
+  // useEffect(()=> {
+  //   axios.get('/api/users/loggedin', { withCredentials: true }) 
+  //       .then(function(response) {
+  //         console.log(" respsonse", response)   
+  //         setUser(response.data); 
+  //       })
+  // },[])
 
   const logoutUser = () => {
     axios.post('/api/users/logout')
     .then(function (response) {
       //response should be null
       console.log("response from logout", response.data)
-      setUser(response.data)
+      props.setUser(null)
     })
   }
   
@@ -31,16 +31,16 @@ export default function Profile (props) {
     logoutUser();
   }
 
-  const showLogin = () => {
-    // e.preventDefault();
-    return (
-        <Login />
-    )
-  }
-  console.log(user, "outside useeffect")
+  // const showLogin = () => {
+  //   e.preventDefault();
+  //   return (
+  //       <Login user={props.user} setUser={props.setUser} />
+  //   ) 
+  // }
+  console.log(props.user, "outside useeffect")
   return (
     <body>
-      { !user ? showLogin() :
+     
     <div class="profile">
       <div class="profile-logo">
       <img src={logo} alt="Logo" />
@@ -48,17 +48,19 @@ export default function Profile (props) {
       <div>
         <h1>Profile</h1>
       </div>
+       { !props.user ? null :
       <div class="profile-details">
-        <p>Name: {user.full_name}</p>
-        <p>Email: {user.email}</p>
-      </div>
+        <p>Name: {props.user.full_name}</p>
+        <p>Email: {props.user.email}</p>
+      </div> 
+      }
       <div class="logout-button">
       <button type="submit" 
               id="logout" 
               class="logout-btn" 
               onClick={handleSubmitClick}>Logout</button>
       </div>
-    </div>}
+    </div>
     </body>
   );
 }

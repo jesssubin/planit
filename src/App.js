@@ -22,11 +22,11 @@ function App () {
   useEffect(()=> {
     axios.get('/api/users/loggedin',{ withCredentials: true }) 
         .then(function(response) {
-          console.log("get user respsonse", response)   
+          console.log("get user respsonse", response) 
           setUser(response.data); 
         })
   },[])  
-
+  
   return (
     <Router>
       <div>
@@ -42,7 +42,7 @@ function App () {
    
       <Switch> 
         <Route path="/register">
-         <Register showError={updateErrorMessage}/>
+         <Register user={user} setUser={setUser} showError={updateErrorMessage}/>
         </Route>
         <Route path="/login">
           <Login user={user} setUser={setUser} showError={updateErrorMessage} />
@@ -60,7 +60,7 @@ function App () {
           <History />
         </Route>
         <Route path="/profile">
-          <Profile />
+          <Profile user={user} setUser={setUser} />
         </Route>
         <Route path="/favourites">
           <FavouritesSearch results = {[]} />

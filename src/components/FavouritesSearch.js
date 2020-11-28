@@ -19,7 +19,10 @@ export default function Favourites (props) {
   }, [])
 
   return (
-    <FavouritesResult favourites={favourites} setFavourites={setFavourites}/>
+    <div>
+      <h1> Your Favourites </h1>
+      <FavouritesResult favourites={favourites} setFavourites={setFavourites}/>
+    </div>
   )
 }
  

@@ -142,7 +142,7 @@ export default function AddToPlan (props) {
               step={15}
               value={timeRange}/>
         </div>
-        <button onClick={onClick}>Submit</button>
+        <button onClick={props.toggleDisplay}>Submit</button>
       </div>
     </div>
 

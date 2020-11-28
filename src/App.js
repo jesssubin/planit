@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios'; 
 
 import Login from "./components/Login";
 import Register from "./components/Register"; 
@@ -14,45 +15,73 @@ import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-function App() {
+function App () {
   const [errorMessage, updateErrorMessage] = useState(null);
+  const [user, setUser] = useState(null); 
+
+  useEffect(()=> {
+    axios.get('/api/users/loggedin',{ withCredentials: true }) 
+        .then(function(response) {
+          console.log("get user respsonse", response)   
+          setUser(response.data); 
+        })
+  },[])  
+
   return (
     <Router>
       <div>
-       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet" />
-       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <nav class="nav-bar">
             <Link to="/"><i class="fas fa-search"></i></Link>
-            <Link to="/user/:id/favourites"><i class="far fa-heart" /></Link>
-            <Link to="/user/:id/plan"><i class="fa fa-calendar-plus"></i></Link>
-            <Link to="/user/:id/history"><i class="fa fa-history"></i></Link>
-            <Link to="/user/:id/profile"><i class="fa fa-user"></i></Link>
+            <Link to="/favourites"><i class="far fa-heart" /></Link>
+            <Link to="/plan"><i class="fa fa-calendar-plus"></i></Link>
+            <Link to="/history"><i class="fa fa-history"></i></Link>
+            <Link to="/profile"><i class="fa fa-user"></i></Link>
         </nav>
       </div>
       
+   
       <Switch> 
         <Route path="/register">
          <Register showError={updateErrorMessage}/>
         </Route>
         <Route path="/login">
-          <Login showError={updateErrorMessage} />
+          <Login user={user} setUser={setUser} showError={updateErrorMessage} />
         </Route>
-        <Route path="/user/:id/plan">
+
+
+        { user ? 
+        
+        <>
+        <Switch>
+        <Route path="/plan">
           <PlanList />
         </Route>
-        <Route path="/user/:id/history">
+        <Route path="/history">
           <History />
         </Route>
-        <Route path="/user/:id/profile">
+        <Route path="/profile">
           <Profile />
         </Route>
-        <Route path="/user/:id/favourites">
+        <Route path="/favourites">
           <FavouritesSearch results = {[]} />
         </Route>
         <Route path="*">
           <Explore />
         </Route> 
+        </Switch>
+        </>
+        
+        : 
+        
+        <Route path="/">
+          <Login user={user} setUser={setUser} showError={updateErrorMessage} />
+        </Route>
+       
+       } 
+         
+
       </Switch>
+     
     </Router>
   );
 }

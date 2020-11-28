@@ -41,6 +41,7 @@ export default function PlanList (props) {
       </div>
       );
   }
+  
   // SAVE PLAN TO DATABASE
   const savePlan = () => {
     const planDate = {

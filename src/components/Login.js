@@ -32,12 +32,13 @@ export default function Login (props) {
         axios.post('/api/users/login', userData, { withCredentials: true })
             .then(function (response) {
                 if(response.status === 200){
-                  console.log("axios get request has been made successfully");
+                  console.log("axios get request has been made successfully", response);
                     setState(prevState => ({
                         ...prevState,
                         'successMessage' : 'Login successful. Redirecting to home page..'
                     }))
                     setError("")
+                    props.setUser(true) 
                     goExplore();
                 } else{
                     console.log("error res login", response)
@@ -52,7 +53,7 @@ export default function Login (props) {
     }  
   
     const history = useHistory();
-    const goExplore = () => history.push('/');
+    const goExplore = () => history.push('/plan');
 
  
 

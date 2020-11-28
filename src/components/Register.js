@@ -50,7 +50,10 @@ export default function Register (props) {
                         'successMessage' : 'Registration successful. Redirecting to home page..'
                     }))
                     setError("")
-                    history.push('/login'); 
+                    // location.reload()
+                    history.push('/plan')
+                    //goToPlan(); 
+                    
                 } else{
     
                     setError("Some error ocurred");
@@ -66,7 +69,7 @@ export default function Register (props) {
 
 
  
-  const goExplore = () => history.push('/');
+  const goToPlan = () => history.push('/plan');
   
 
 

@@ -8,12 +8,13 @@ export default function Favourites (props) {
   useEffect(() => {
     axios.get("/api/favourites")
     .then(function(response){
+      console.log("heyyyyy from the get")
       setFavourites([...response.data]);
     });
   }, [])
 
   return (
-    <FavouritesResult favourites={favourites} />
+    <FavouritesResult favourites={favourites} setFavourites={setFavourites}/>
   )
 }
  

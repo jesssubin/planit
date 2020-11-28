@@ -1,6 +1,6 @@
 import React from "react";
 
-import HistoryDetails from "./HistoryDetails";
+import HistoryDates from "./HistoryDates";
 
 export default function HistoryResults (props) {
   const { history } = props;
@@ -8,7 +8,7 @@ export default function HistoryResults (props) {
   
 
 
-return history.map(plan => {
-  return <HistoryDetails key={plan.id} {...plan} />
+return history.map(elem => {
+  return <HistoryDates onClick={() => props.onClick(elem.id)} key={elem.id} {...elem} />
  })
 }

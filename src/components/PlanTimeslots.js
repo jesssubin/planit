@@ -42,9 +42,22 @@ export default function PlanTimeslots (props) {
       id: props.id
     }
     axios.post('/api/timeslots/delete', timeslotData)
-    .then(function(response) {
-       console.log("delete res", response)
+    .then(function(response){
+    props.setTimeslots((prev) => {
+      let index;
+      console.log(prev, "this is prec")
+      prev.forEach((plan, i) => {
+        console.log(plan.id, props.id, "this is if")
+        if (plan.id === props.id) {
+          index = i
+        }
+      })
+      const prevCopy = [...prev]
+
+      prevCopy.splice(index, 1)
+      return prevCopy
     })
+  });
     
   }
 
@@ -99,8 +112,8 @@ const onClickSubmitEdit = () => {
         <header class="w3-container w3-light-grey"> </header>
       <div class="w3-container">
 
-        <h5>Start: {startTime}</h5>
-        <h5>End: {endTime}</h5>
+        <h5>Start: {timeRange.start}</h5>
+        <h5>End: {timeRange.end}</h5>
         {edit ?  
         <div>
             <TimeRangeSlider

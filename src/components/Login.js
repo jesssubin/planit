@@ -62,16 +62,16 @@ export default function Login (props) {
     <div class="login">
 
        <div class="sign-in-text">
-          <h5>Sign in</h5>
+         
         </div>
 
       <div class="login-form">
-        <form class="login-form" action="/login" method="POST">
+      <form class="login-form" action="/login" method="POST">
 
       <label for="email"></label>
       <input type="email" 
-             className="form-control" 
-             class="input"
+             class="login-email"
+             
              id="email" 
              placeholder="Enter email" 
              value={state.email}
@@ -79,9 +79,9 @@ export default function Login (props) {
              style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}/>
 
       <label for="password"></label>
-      <input 
+      <input class="login-password"
              type="password" 
-             className="form-control" 
+            
              id="password" 
              placeholder="Password"
              value={state.password}

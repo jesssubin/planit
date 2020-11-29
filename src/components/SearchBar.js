@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback }from "react";
 import useDebounce from "../../src/hooks/useDebounce";
+import "../searchbar.css"
 
 export default function SearchBar (props) {
   const [value, setValue] = useState("");
@@ -11,14 +12,13 @@ export default function SearchBar (props) {
   }, [term, onSearch]);
 
   return (
-    <div>
-      <h1>Explore</h1>
-      <section className="search">
+    <div class="search-file">
+      <section class="search-section">
         <form className="search__form" onSubmit={event => event.preventDefault()}>
           <input
-            className="radius"
+            class="search-input"
             spellCheck="false"
-            placeholder="Search Activities"
+            placeholder="Search Here"
             name="search"
             type="text"
             value={value}

@@ -39,19 +39,16 @@ export default function Profile (props) {
   // }
   console.log(props.user, "outside useeffect")
   return (
-    <body>
-     
+   
     <div class="profile">
-      <div class="profile-logo">
-      <img src={logo} alt="Logo" />
+      <div class="sign-in-text">
+        <p>Profile</p>
       </div>
-      <div>
-        <h1>Profile</h1>
-      </div>
+    
        { !props.user ? null :
-      <div class="profile-details">
-        <p>Name: {props.user.full_name}</p>
-        <p>Email: {props.user.email}</p>
+      <div class="profile-form">
+        <p><strong> Name: </strong> {props.user.full_name}</p>
+        <p><strong> Email: </strong> {props.user.email}</p>
       </div> 
       }
       <div class="logout-button">
@@ -60,7 +57,8 @@ export default function Profile (props) {
               class="logout-btn" 
               onClick={handleSubmitClick}>Logout</button>
       </div>
+     
     </div>
-    </body>
+
   );
 }

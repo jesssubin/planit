@@ -15,12 +15,12 @@ body {
   background-repeat: no-repeat;
   background-size: 100%; 
 }
-.registerHeader{
+.registerHeader {
   display: flex; 
   flex-direction: column; 
   align-items:center;
 }
-.registerLogo{
+.registerLogo {
   display: flex; 
   justify-content: center; 
   margin-top: 3em;
@@ -34,7 +34,7 @@ body {
   margin-bottom: 4em;
 }
 
-#register-login{
+#register-login {
   color:#FFFFFF;
 }
 .register-button {
@@ -43,9 +43,33 @@ body {
   text-align: center;
 }
 
+#full_name {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  height: 2.5em;
+  width: 50vw;
+}
+
+#confirmPassword {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 2.5em;
+  width: 50vw;
+}
+
+.register-email {
+  height: 2.5em;
+  width: 50vw;
+}
+
+.register-password {
+  height: 2.5em;
+  width: 50vw;
+}
+
 .register-btn {
   font-size: 15px;
-  padding: 10px 20px;
+  padding: 7px 15px;
   background-color: #fd9d00;
   border-radius: 8px;
   color: white;

@@ -77,10 +77,7 @@ export default function Register (props) {
   return (
     <div class="login">
       <div class="sign-in-text">
-        <h5>Create a New Account</h5>
-      </div>
-      <div>
-      <p class="register-p">Please fill in the form</p>
+        <p>Create a New Account</p>
       </div>
     <div class="register-form">
     <form class="register-form" action="/register" method="POST">
@@ -90,7 +87,6 @@ export default function Register (props) {
               className="form-control"
               id="full_name"
               placeholder="Enter Your Name" 
-              name="full_name" 
               value={state.full_name}
               onChange={handleChange}
               style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}
@@ -101,6 +97,7 @@ export default function Register (props) {
         <input type="email" 
               className="form-control" 
               id="email" 
+              class="register-email"
               placeholder="Enter Email" 
               value={state.email}
               onChange={handleChange} 
@@ -112,6 +109,7 @@ export default function Register (props) {
         <input type="password" 
               className="form-control" 
               id="password" 
+              class="register-password"
               placeholder="Enter Password"
               value={state.password}
               onChange={handleChange}

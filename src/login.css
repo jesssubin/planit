@@ -29,6 +29,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 7em;
+  margin-top: 1em;
   
 }
 
@@ -64,7 +65,7 @@ input {
 
 .login-btn {
   font-size: 15px;
-  padding: 10px 20px;
+  padding: 7px 15px;
   background-color: #fd9d00;
   border-radius: 8px;
   color: white;
@@ -80,4 +81,25 @@ input {
 
 #signup {
   color: white
+}
+
+.login-email {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  height: 2.5em;
+  width: 50vw;
+}
+
+.login-password {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 2.5em;
+  width: 50vw;
+}
+
+::-webkit-input-placeholder {
+  display: flex;  
+  color: #bdbdbd;
+  text-align: center;
+ 
 }

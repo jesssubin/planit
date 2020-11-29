@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 
 import SearchBar from "./SearchBar";
 import ExploreResult from "./ExploreResult";
-
+import "../liveSearch.css"
 const axios = require('axios');
 
 export default function LiveSearch(props) {
@@ -25,12 +25,14 @@ export default function LiveSearch(props) {
   
   return (
     <Fragment>
-      <header className="logo">
      
-      </header>
-      <main>
+      <main class="live-search">
+        <div class="searchbar-result">
         <SearchBar onSearch={term => setTerm(term)}/>
+        </div>
+        <div class="explore-result"> 
         <ExploreResult results={results} />
+        </div>
       </main>
     </Fragment>
   );

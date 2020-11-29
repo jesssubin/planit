@@ -1,25 +1,22 @@
 .search-file {
   font-family: "Raleway", sans-serif;
-  display: flex;
+  display: fixed;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('./searchbar.png');
-  background-repeat: no-repeat;
-  background-size: 100%; 
+ 
   color: #ffffff;
 }
 
 .search-section {
-  margin-top: 10em; 
-  margin-bottom: 30em; 
+  margin-top: 1em;
+  margin-bottom: 14.5em;
 }
 
 .search-input {
   background-color: #171e2c !important;
   color: #ffffff !important;
   border: none;
-  margin-top: 6em;
   padding-left: 5em;
   padding-right: 5em;
   padding-top: 1em;

@@ -75,7 +75,8 @@ export default function Login (props) {
              id="email" 
              placeholder="Enter email" 
              value={state.email}
-             onChange={handleChange} />
+             onChange={handleChange} 
+             style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}/>
 
       <label for="password"></label>
       <input 
@@ -85,7 +86,7 @@ export default function Login (props) {
              placeholder="Password"
              value={state.password}
              onChange={handleChange}
-             style= {{backgroundColor: "#171e2c"}}/>
+             style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}/>
     {error && <div className="alert alert-danger"> {error} </div>}
    
       <div class="login-button">

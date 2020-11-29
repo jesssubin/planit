@@ -93,6 +93,7 @@ export default function Register (props) {
               name="full_name" 
               value={state.full_name}
               onChange={handleChange}
+              style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}
                />
       </span>
       <span>
@@ -103,6 +104,7 @@ export default function Register (props) {
               placeholder="Enter Email" 
               value={state.email}
               onChange={handleChange} 
+              style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}
                />
       </span>
       <span>
@@ -112,7 +114,8 @@ export default function Register (props) {
               id="password" 
               placeholder="Enter Password"
               value={state.password}
-              onChange={handleChange} 
+              onChange={handleChange}
+              style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}} 
               />
       </span>
       <span>
@@ -122,7 +125,8 @@ export default function Register (props) {
               id="confirmPassword" 
               placeholder="Confirm Password"
               value={state.confirmPassword}
-              onChange={handleChange} 
+              onChange={handleChange}
+              style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}} 
               />
       </span>
       {error && <div className="alert alert-danger"> {error} </div>}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'; 
 import FavouritesToPlan from './FavouritesToPlan'; 
-
+import '../cards.css'
  
 
 export default function Favourites (props) { 
@@ -38,14 +38,20 @@ export default function Favourites (props) {
   return (
     <article>
       { details ? showDetails() :
-      <div class="w3-card-4">
-      <header class="w3-container w3-light-grey">{props.name}</header>
-        <div class="w3-container">
-        <h5>{props.address}</h5>
-        <h5>{props.types}</h5>
-        </div>
-        <button onClick={() => setDetails(true)} class="w3-button w3-block w3-dark-grey"> Add to Plan </button>
-        <button onClick={onClickDelete} class="w3-button w3-block w3-dark-grey"> Remove from Favourites </button>
+      <div class="card">
+      <div class="card-name">
+      <p>{props.name}</p>
+      </div>
+      <div class="card-name">
+        <p>{props.address}</p>
+      </div>
+      <div class="card-rating">
+        <p>{props.types}</p>
+      </div>
+      <div class="button-bundle">
+        <button onClick={() => setDetails(true)} class="card-buttons"> Add to Plan </button>
+        <button onClick={onClickDelete} class="card-buttons"> Remove from Favourites </button>
+      </div>
       </div>}
     </article>
   )

@@ -20,6 +20,7 @@ head {
   width: 100vw;
   background-color: #171e2c;
   border-top: 1px white solid; 
+  z-index: 100;
 }
 
 .nav-item {

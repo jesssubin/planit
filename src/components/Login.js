@@ -60,42 +60,46 @@ export default function Login (props) {
 
   return (
     <div class="login">
-      <div>
-        <img class="login-logo" src={logo} alt="Logo" />
-      </div>
-      <div class="login-form">
-        <div class="sign-in-text">
-          <p>Sign in</p>
+
+       <div class="sign-in-text">
+          <h5>Sign in</h5>
         </div>
+
+      <div class="login-form">
         <form class="login-form" action="/login" method="POST">
 
       <label for="email"></label>
       <input type="email" 
              className="form-control" 
+             class="input"
              id="email" 
              placeholder="Enter email" 
              value={state.email}
              onChange={handleChange} />
 
       <label for="password"></label>
-      <input type="password" 
+      <input 
+             type="password" 
              className="form-control" 
              id="password" 
              placeholder="Password"
              value={state.password}
-             onChange={handleChange} />
+             onChange={handleChange}
+             style= {{backgroundColor: "#171e2c"}}/>
     {error && <div className="alert alert-danger"> {error} </div>}
+   
       <div class="login-button">
         <button type="submit" 
                 class="login-btn"
                 onClick={handleSubmitClick}>
           Login
         </button> 
-      </div>
-    </form>
         <div>
           <span>Don't have an account? <a id="signup" href="/register">Sign up here!</a></span>
         </div>
+      </div>
+    </form>
+        
       </div>
     </div>
   );

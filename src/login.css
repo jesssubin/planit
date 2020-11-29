@@ -1,8 +1,14 @@
 body {
-  background-color: rgb(6,52,52); 
+  height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: "Raleway", sans-serif;
+}
+
+.sign-in-text {
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20em;
 }
 
 .login {
@@ -10,7 +16,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(6,52,52);
+  background-image: url('./login.png');
+  background-repeat: no-repeat;
+  background-size: 100%; 
   color: #ffffff;
   font-family: "Raleway", sans-serif;
 }
@@ -20,7 +28,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(6,52,52); 
+  margin-bottom: 7em;
+  
 }
 
 .login-logo{
@@ -31,11 +40,7 @@ body {
   margin-top: 4em;
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-}
-
+/* 
 input {
   resize: none;
   border: none; 
@@ -44,8 +49,12 @@ input {
   margin-bottom: 1em;
   color: white; 
   width: 50vw;
-}
+} */
 
+.input {
+  background-color: #171e2c !important;
+  color: #ffffff !important;
+}
 
 .login-button {
   flex-direction: column;
@@ -60,7 +69,8 @@ input {
   border-radius: 8px;
   color: white;
   border: none;
-  margin-top: 2em; 
+  margin-top: 1em; 
+  margin-bottom: 1em;
 }
 
 .login-btn:hover {

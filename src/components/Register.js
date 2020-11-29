@@ -75,14 +75,14 @@ export default function Register (props) {
 
 
   return (
-    <div class="register">
-      <div class="registerLogo">
-        <img src={logo} alt="Logo" />
+    <div class="login">
+      <div class="sign-in-text">
+        <h5>Create a New Account</h5>
       </div>
-      <div class="registerHeader">
-        <h1>Create a New Account</h1>
-        <p>Please fill in the form</p>
+      <div>
+      <p class="register-p">Please fill in the form</p>
       </div>
+    <div class="register-form">
     <form class="register-form" action="/register" method="POST">
       <span>
         <label for="full_name"></label>
@@ -138,7 +138,7 @@ export default function Register (props) {
         <span>Have an account? <a href="/login" id='register-login'>Sign in.</a></span>
       </div>
     </form>
-    
+    </div>
   </div>
   )
 }

@@ -4,7 +4,7 @@ import HistoryResults from "./HistoryResults";
 import HistoryDetail from "./HistoryDetail";
 
 import "../history.css"
-import "../cards.css"
+
 
 export default function History (props) {
   const [history, setHistory] = useState([]);
@@ -29,13 +29,10 @@ export default function History (props) {
   return (
     <div class="history-list">
       {historyDetails ? showHistoryDetails() :
-      <div>
-      <body class='container'>
-      <div>
-      <HistoryResults history={history} onClick={(id) => setHistoryDetails(id)}/>
+      <div class="history-result">
+        <HistoryResults history={history} onClick={(id) => setHistoryDetails(id)}/>
       </div>
-      </body>
-      </div>}
+      }
     </div>
   );
 }

@@ -35,10 +35,10 @@ export default function HistoryDetail (props) {
   console.log("hist summary sending this;", timeslots)
 
   return (
-    <div>
-      <h1>Your Trip Summary for {props.date.slice(0,10)}</h1>
-        <div> <HistorySummary timeslots={timeslots} plan={props.id}/> </div>
-        <button onClick={props.toggleDisplay} class="card-buttons">Back to History </button>
+    <div class="history-detail">
+     
+        <HistorySummary timeslots={timeslots} plan={props.id}/> 
+        <button onClick={props.toggleDisplay} class="history-card-buttons">Back to History </button>
     </div>
   )
 }; 

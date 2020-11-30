@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import "../history.css"
 
 
 export default function HistoryTimeslots (props) {
   const [activityInfo, setActivityInfo] = useState({}); 
-  console.log("this is props from hist time", props)
 
   useEffect (() =>{
     const activityId = {
@@ -17,16 +17,14 @@ export default function HistoryTimeslots (props) {
    })
  }, [props.activity_id])
 
-    
-  console.log(activityInfo)
+  
     return ( 
-      <div>
-       <h5>{activityInfo[0] ? activityInfo[0].name : null}</h5>
-        <h5>{activityInfo[0] ? activityInfo[0].address : null}</h5>
-
-        <p>{props.start_time}</p>
-        <p>{props.end_time}</p>
-      ------------------------
+      <div class="history-card">
+        
+       <p class="history-card-name">{activityInfo[0] ? activityInfo[0].name : null}</p>
+       
+        <p class="history-card-address">{activityInfo[0] ? activityInfo[0].address : null}</p>
+        <p>You visited from: {props.start_time} to {props.end_time}</p>
       </div>
 
     )

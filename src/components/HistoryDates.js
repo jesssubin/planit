@@ -1,19 +1,20 @@
 import React from "react";
+import "../history.css"
 
 export default function HistoryDates (props) {
   
   console.log("props from details", props)
-  console.log("hello")
+  
   
   return (
     <article>
-      <div class="card">
+      <div class="history-card">
       <header>{props.date.slice(0,10)}</header>
+        <div class="history-card-name">
+          <p>{props.name}</p>
+        </div>
         <div>
-        <h5>{props.name} </h5>
-        <h5>{props.address}</h5>
-        
-        <button onClick={props.onClick} class="card-buttons">See Details </button>
+          <button onClick={props.onClick} class="history-card-buttons">See Details </button>
         </div>
       </div>
     </article>

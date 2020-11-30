@@ -40,14 +40,14 @@ export default function Favourites (props) {
     <article>
       { details ? showDetails() :
       <div class="favorites-card">
-        <div class="favorites-card-name">
-          <p>{props.name}</p>
+        <div>
+          <p class="favorites-card-name">{props.name}</p>
         </div>
-        <div class="favorites-card-address">
-          <p>{props.address}</p>
+        <div>
+          <p class="favorites-card-address">{props.address}</p>
         </div>
-        <div class="favorites-card-types">
-          <p>Category: {props.types}</p>
+        <div>
+          <p class="favorites-card-types">Category: {props.types}</p>
         </div>
         <div class="favorites-button-bundle">
           <button onClick={() => setDetails(true)} class="favorites-card-buttons"> Add to Plan </button>

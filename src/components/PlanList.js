@@ -28,6 +28,7 @@ export default function PlanList (props) {
     return (
       <div> 
        <form id= "add-app">
+       <label>Start your adventure!</label>
        <input type="name"
               id="name"
               placeholder="Name your day plan" 
@@ -37,7 +38,7 @@ export default function PlanList (props) {
                />
           <label>Date </label>
           <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-          <button onClick={onClick}>Create</button>
+          <button class="create-card-buttons" onClick={onClick}>Create</button>
         </form>
       </div>
       );
@@ -83,11 +84,11 @@ export default function PlanList (props) {
   }
 console.log("PLANSS!!!!", plans)
 return (
-  <article>
+  <div>
   { planDetails ? showPlanDetails() :
     <div class="plan-list">
     {form ? showForm() : 
-    <div>
+    <div class="plan-result">
       {plans ?    
       <div class="individual-plan">
         <PlanResults plans={plans} onClick={(id) => setPlanDetails(id)}/> 
@@ -97,6 +98,6 @@ return (
     } 
     </div>
   }
-   </article>
+   </div>
   );
 }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import TimeRangeSlider from 'react-time-range-slider';
 
 export default function PlanTimeslots (props) {
-  console.log("props from plantimeslot", props)
+  
   const [activityInfo, setActivityInfo] = useState({}); 
   const [edit, setEdit] = useState(false)
   const [startTime, setStartTime] = useState(props.start_time)
@@ -98,15 +98,14 @@ const onClickSubmitEdit = () => {
 }
   
   return (
-    <article>
-      <div class="w3-card-4">
-        <header class="w3-container w3-light-grey"> </header>
-      <div class="w3-container">
-
-        <h5>Start: {timeRange.start}</h5>
-        <h5>End: {timeRange.end}</h5>
+    
+      <div class="plan-card">
+        <div class="plan-card-time">
+          <p class="plan-card-time">From: {timeRange.start} </p>
+          <p class="plan-card-time">-{timeRange.end}</p>
+        </div>
         {edit ?  
-        <div>
+        <div class="plan-time-slider-add">
             <TimeRangeSlider
               disabled={false}
               format={24}
@@ -119,15 +118,17 @@ const onClickSubmitEdit = () => {
               step={15}
               value={timeRange}/>
         </div> : null }
-        <h5>{activityInfo[0] ? activityInfo[0].name : null}</h5>
-        <h5>{activityInfo[0] ? activityInfo[0].address : null}</h5>
+        <p class="plan-card-name">{activityInfo[0] ? activityInfo[0].name : null}</p>
+    
+        <p class="plan-card-address">{activityInfo[0] ? activityInfo[0].address : null}</p>
+        <div class="plan-button-bundle">
         { edit ? 
-        <button onClick={onClickSubmitEdit} class="timeslots-card-buttons"> Submit New Time </button>
-        :  <button onClick={onClickEdit} class="timeslots-card-buttons"> Edit Time </button>}
-        <button onClick={onClickDelete} class="time-slots-card-buttons"> Delete </button>
+        <button onClick={onClickSubmitEdit} class="plan-card-buttons"> Submit New Time </button>
+        :  <button onClick={onClickEdit} class="plan-card-buttons"> Edit Time </button>}
+        <button onClick={onClickDelete} class="plan-card-buttons"> Delete </button>
       </div>
     </div>
-  </article>
+  
   )
 
 };

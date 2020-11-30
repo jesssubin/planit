@@ -11,6 +11,6 @@ export default function PlanSummary (props) {
     return <PlanTimeslots key={timeslot.id} {...timeslot} setTimeslots={props.setTimeslots}/>
   });
   } else {
-    return <p>Once you add activities to your plan they'll appear here"</p>
+    return <p class="no-plans">Once you add activities to your plan <br></br>they'll appear here</p>
   }
 }

@@ -45,14 +45,15 @@ export default function PlanDetail (props) {
     })
   }, [])
   
-  console.log("plan summary sending this;", timeslots)
 
   return (
-    <div>
-      <h1>Your Trip Summary for {props.date.slice(0,10)}</h1>
+    <div class="plan-list">
+    <div class="plan-detail">
+      <p class="plan-trip-summary">Your Trip Summary for <br></br>{props.date.slice(0,10)}</p>
   <div> <PlanSummary timeslots={timeslots} plan={props.id} setTimeslots={setTimeslots}/> </div>
-        <button onClick={archivePlan} class="card-buttons">Archive this Plan </button>
-        <button onClick={props.toggleDisplay} class="card-buttons">Back to all Plans </button>
+        <button onClick={archivePlan} class="plan-card-buttons">Archive this Plan </button>
+        <button onClick={props.toggleDisplay} class="plan-card-buttons">Back to all Plans </button>
+    </div>
     </div>
   )
 }; 

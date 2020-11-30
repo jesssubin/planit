@@ -31,8 +31,7 @@ export default function HistoryDetail (props) {
       setTimeslots([...response.data])
     })
   }, [])
-  
-  console.log("hist summary sending this;", timeslots)
+
 
   return (
     <div class="history-detail">

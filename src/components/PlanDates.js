@@ -12,12 +12,13 @@ export default function PlanDates (props) {
 
   return (
     <article>
-      <div class="w3-card-4">
-      <header class="w3-container w3-light-grey">{props.date.slice(0,10)}</header>
-        <div class="w3-container">
-        <h5>{props.name}</h5>
-        <h5>{props.address}</h5>
-        <button onClick={props.onClick} class="w3-button w3-block w3-dark-grey">See Details </button>
+      <div class="plan-card">
+      <header>{props.date.slice(0,10)}</header>
+        <div class="plan-card-name">
+          <p>{props.name}</p>
+        </div>
+        <div>
+          <button onClick={props.onClick} class="plan-card-buttons">See Details </button>
         </div>
       </div>
     </article>

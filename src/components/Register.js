@@ -75,56 +75,53 @@ export default function Register (props) {
 
 
   return (
-    <div class="login">
-      <div class="sign-in-text">
-        <p>Create a New Account</p>
-      </div>
+    <div class="register">
     <div class="register-form">
     <form class="register-form" action="/register" method="POST">
       <span>
         <label for="full_name"></label>
         <input type="full_name" 
-              className="form-control"
+              class="register-name"
               id="full_name"
               placeholder="Enter Your Name" 
               value={state.full_name}
               onChange={handleChange}
-              style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}
+              style= {{backgroundColor: "#FFFFFF00", color: "#FFFFFF", border: "2px solid white"}}
                />
       </span>
       <span>
         <label for="email"></label>
         <input type="email" 
-              className="form-control" 
+              class="register-email" 
               id="email" 
               class="register-email"
               placeholder="Enter Email" 
               value={state.email}
               onChange={handleChange} 
-              style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}
+              style= {{backgroundColor: "#FFFFFF00", color: "#FFFFFF", border: "2px solid white"}}
                />
       </span>
       <span>
         <label for="password"></label>
         <input type="password" 
-              className="form-control" 
+              class="register-password" 
               id="password" 
               class="register-password"
               placeholder="Enter Password"
               value={state.password}
               onChange={handleChange}
-              style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}} 
+              style= {{backgroundColor: "#FFFFFF00", color: "#FFFFFF", border: "2px solid white"}} 
               />
       </span>
       <span>
         <label for="confirmPassword"></label>
         <input type="password" 
-              className="form-control" 
+              class="register-confirm-pwd" 
               id="confirmPassword" 
               placeholder="Confirm Password"
               value={state.confirmPassword}
               onChange={handleChange}
-              style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}} 
+              style= {{backgroundColor: "#FFFFFF00", color: "#FFFFFF", border: "2px solid white"}} 
               />
       </span>
       {error && <div className="alert alert-danger"> {error} </div>}
@@ -137,9 +134,10 @@ export default function Register (props) {
       </div>
       
       <div>
-        <span>Have an account? <a href="/login" id='register-login'>Sign in.</a></span>
+        <span>Have an account? <a href="/login" id='register-login'><strong>Sign In</strong></a></span>
       </div>
     </form>
+    <p class="register-slogan">Plan your trip around the planet</p>
     </div>
   </div>
   )

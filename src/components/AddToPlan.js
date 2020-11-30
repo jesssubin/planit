@@ -124,7 +124,6 @@ export default function AddToPlan (props) {
          <strong>{props.name}</strong>
       </div>
       <div class="favorites-card-plan">
-        <label>Plan </label>
         <select class="select-plan" value={chosenPlan} onChange={(event) => planChangeHandler(event.target.value)}>
           <option key={1000} value="select" selected> Select plans </option>
           {options}

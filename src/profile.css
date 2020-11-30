@@ -1,8 +1,3 @@
-html, body {
-  margin: 0;
-  height: 100%;
-  background-color: #ffffff;
-}
 
 
 .profile {
@@ -37,14 +32,15 @@ h1 {
 }
 
 .logout-btn {
-  background-color: #171e2c; 
-  border: 1px solid #ffffff;
+  background-color: #ffffff00; 
+  border: 2px solid #ffffff;
   color: white;
   padding: 8px 8px;
   text-decoration: none;
   display: inline-block;
   font-size: 13px;
-  margin-bottom: 18em;
+  font-weight: bolder;
+  margin-bottom: 15em;
 }
 
 .logout-btn:hover {
@@ -56,11 +52,28 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 22em;
+  margin-bottom: 1em;
   
 }
 
 .profile-info {
   font-weight: bolder;
   font-weight: 900;
+}
+
+.sign-in-text {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #171e2c;
+  margin-top: 16em;
+}
+
+.profile-name {
+  margin: 0;
+  color: #171e2c;
+}
+
+.profile-email {
+  color: #171e2c;
+  margin-bottom: 3em;
 }

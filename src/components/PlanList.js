@@ -33,11 +33,12 @@ export default function PlanList (props) {
               id="name"
               placeholder="Name your day plan" 
               name="name" 
+              class="plan-list-name"
               value={state.name}
               onChange={handleChange}
                />
           <label>Date </label>
-          <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+          <DatePicker id="plan-list-datepicker" selected={startDate} onChange={date => setStartDate(date)} />
           <button class="create-card-buttons" onClick={onClick}>Create</button>
         </form>
       </div>

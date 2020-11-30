@@ -19,7 +19,7 @@
   margin-bottom: 0.5em;
 }
 .button-bundle {
-  width: 50vw;
+  width: 53vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -29,11 +29,13 @@
   background-color: white; 
   border: 1px solid #171e2c;
   color: #171e2c;
-  padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 13px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .card-buttons:hover {

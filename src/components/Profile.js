@@ -41,14 +41,14 @@ export default function Profile (props) {
   return (
    
     <div class="profile">
-      <div class="sign-in-text">
-        <p>Profile</p>
-      </div>
+    
+        <p class="sign-in-text">Profile</p>
+      
     
        { !props.user ? null :
       <div class="profile-form">
-        <p><strong> Name: </strong> {props.user.full_name}</p>
-        <p><strong> Email: </strong> {props.user.email}</p>
+        <p class="profile-name"><strong> Name: </strong> {props.user.full_name}</p>
+        <p class="profile-email"><strong> Email: </strong> {props.user.email}</p>
       </div> 
       }
       <div class="logout-button">

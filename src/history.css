@@ -17,11 +17,10 @@
   position: fixed;
   flex-direction: column;
   overflow-y: scroll;
-  margin-top: 16em;
+  margin-top: 5em;
   height: 50vh;
   margin-bottom: 15vh;
   justify-content: center;
-  padding-top: 15.5em;
   margin-left: 5px;
 }
 

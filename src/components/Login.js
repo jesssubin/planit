@@ -76,7 +76,7 @@ export default function Login (props) {
              placeholder="Enter email" 
              value={state.email}
              onChange={handleChange} 
-             style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}/>
+             style= {{backgroundColor: "#FFFFFF00", color: "#FFFFFF", border: "2px solid #FFFFFF"}}/>
 
       <label for="password"></label>
       <input class="login-password"
@@ -86,7 +86,7 @@ export default function Login (props) {
              placeholder="Password"
              value={state.password}
              onChange={handleChange}
-             style= {{backgroundColor: "#171e2c", color: "#FFFFFF", border: "none"}}/>
+             style= {{backgroundColor: "#FFFFFF00", color: "#FFFFFF", border: "2px solid #FFFFFF"}}/>
     {error && <div className="alert alert-danger"> {error} </div>}
    
       <div class="login-button">
@@ -96,11 +96,11 @@ export default function Login (props) {
           Login
         </button> 
         <div>
-          <span>Don't have an account? <a id="signup" href="/register">Sign up here!</a></span>
+          <span>Don't have an account? <a id="signup" href="/register"><strong>Sign up here!</strong></a></span>
         </div>
       </div>
     </form>
-        
+        <p class="login-slogan">Plan your way around the planet</p>
       </div>
     </div>
   );

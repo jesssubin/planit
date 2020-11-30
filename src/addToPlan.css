@@ -34,7 +34,9 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 14px;
+  width: 25vw;
+  padding: 0.3em;
 }
 
 .add-card-buttons:hover {
@@ -62,7 +64,7 @@
 .add-to-time {
   padding: 0;
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .input-range__track--active,
@@ -72,9 +74,16 @@
 }
 
 .card-name {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
+  font-size: 18px;
 }
 
 .select-plan {
-  border: none;
+  border: 1px solid #253B59;
+  padding: 0.3em;
+  margin-bottom: 0.2em;
+}
+
+.card-rating {
+  margin-bottom: 0.1em;
 }

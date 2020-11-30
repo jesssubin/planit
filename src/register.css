@@ -68,18 +68,18 @@ body {
 }
 
 .register-btn {
-  font-size: 15px;
-  padding: 7px 15px;
-  background-color: #fd9d00;
-  border-radius: 8px;
+  background-color: #ffffff00; 
+  border: 1px solid #ffffff;
   color: white;
-  border: none;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  padding: 8px 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 1.5em;
 }
 
 .register-btn:hover {
-  background-color: #fd7d00 ; /* Green */
+  background-color: #171e2c ; /* Green */
   color: white;
 }
 

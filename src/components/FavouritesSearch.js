@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import FavouritesResult from './FavouritesResult'; 
+import "../favouritesSearch.css"
 
 export default function Favourites (props) {
   const [favourites, setFavourites] = useState([]);
@@ -19,9 +20,10 @@ export default function Favourites (props) {
   }, [])
 
   return (
-    <div>
-      <h1> Your Favourites </h1>
+    <div class="favourites">
+        <div class="favourites-result"> 
       <FavouritesResult favourites={favourites} setFavourites={setFavourites}/>
+      </div>
     </div>
   )
 }

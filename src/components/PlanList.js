@@ -5,6 +5,7 @@ import PlanDetail from "./PlanDetail";
 import PlanResults from "./PlanResults";
 import "react-datepicker/dist/react-datepicker.css";
 import { useHistory } from "react-router-dom";
+import '../planlist.css'
 
 export default function PlanList (props) {
   const [form, setForm] = useState(false)
@@ -84,16 +85,14 @@ console.log("PLANSS!!!!", plans)
 return (
   <article>
   { planDetails ? showPlanDetails() :
-    <div>
-    <h1>Your Plans</h1>
+    <div class="plan-list">
     {form ? showForm() : 
     <div>
-      <button onClick={() => setForm(true)} class="w3-button w3-block w3-dark-grey">Create a new plan!</button>
       {plans ?    
-      <div>
+      <div class="individual-plan">
         <PlanResults plans={plans} onClick={(id) => setPlanDetails(id)}/> 
       </div> : null}
-   
+      <button onClick={() => setForm(true)} class="new-plan-btn">Create a new plan!</button>
       </div>
     } 
     </div>

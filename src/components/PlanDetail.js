@@ -51,8 +51,8 @@ export default function PlanDetail (props) {
     <div>
       <h1>Your Trip Summary for {props.date.slice(0,10)}</h1>
   <div> <PlanSummary timeslots={timeslots} plan={props.id} setTimeslots={setTimeslots}/> </div>
-        <button onClick={archivePlan} class="w3-button w3-block w3-dark-grey">Archive this Plan </button>
-        <button onClick={props.toggleDisplay} class="w3-button w3-block w3-dark-grey">Back to all Plans </button>
+        <button onClick={archivePlan} class="card-buttons">Archive this Plan </button>
+        <button onClick={props.toggleDisplay} class="card-buttons">Back to all Plans </button>
     </div>
   )
 }; 

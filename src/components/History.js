@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import axios from 'axios';
 import HistoryResults from "./HistoryResults";
 import HistoryDetail from "./HistoryDetail";
+
+import "../history.css"
+import "../cards.css"
 
 export default function History (props) {
   const [history, setHistory] = useState([]);
@@ -25,10 +27,9 @@ export default function History (props) {
  
 
   return (
-    <div>
+    <div class="history-list">
       {historyDetails ? showHistoryDetails() :
       <div>
-      <h1>Your History</h1>
       <body class='container'>
       <div>
       <HistoryResults history={history} onClick={(id) => setHistoryDetails(id)}/>

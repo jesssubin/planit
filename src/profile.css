@@ -37,17 +37,18 @@ h1 {
 }
 
 .logout-btn {
-  font-size: 15px;
-  padding: 10px 20px;
-  background-color: #fd9d00;
-  border-radius: 8px;
+  background-color: #171e2c; 
+  border: 1px solid #ffffff;
   color: white;
-  border: none;
-  margin-bottom: 11em; 
+  padding: 8px 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin-bottom: 18em;
 }
 
 .logout-btn:hover {
-  background-color: #fd7d00 ; /* Green */
+  background-color: #171e2c ; /* Green */
   color: white;
 }
 .profile-form {
@@ -55,7 +56,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3em;
+  margin-bottom: 22em;
   
 }
 

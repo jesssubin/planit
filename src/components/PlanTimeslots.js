@@ -122,9 +122,9 @@ const onClickSubmitEdit = () => {
         <h5>{activityInfo[0] ? activityInfo[0].name : null}</h5>
         <h5>{activityInfo[0] ? activityInfo[0].address : null}</h5>
         { edit ? 
-        <button onClick={onClickSubmitEdit} class="w3-button w3-block w3-dark-grey"> Submit New Time </button>
-        :  <button onClick={onClickEdit} class="w3-button w3-block w3-dark-grey"> Edit Time </button>}
-        <button onClick={onClickDelete} class="w3-button w3-block w3-dark-grey"> Delete </button>
+        <button onClick={onClickSubmitEdit} class="timeslots-card-buttons"> Submit New Time </button>
+        :  <button onClick={onClickEdit} class="timeslots-card-buttons"> Edit Time </button>}
+        <button onClick={onClickDelete} class="time-slots-card-buttons"> Delete </button>
       </div>
     </div>
   </article>

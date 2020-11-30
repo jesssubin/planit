@@ -7,13 +7,13 @@ export default function HistoryDates (props) {
   
   return (
     <article>
-      <div class="w3-card-4">
-      <header class="w3-container w3-light-grey">{props.date.slice(0,10)}</header>
-        <div class="w3-container">
+      <div class="card">
+      <header>{props.date.slice(0,10)}</header>
+        <div>
         <h5>{props.name} </h5>
         <h5>{props.address}</h5>
         
-        <button onClick={props.onClick} class="w3-button w3-block w3-dark-grey">See Details </button>
+        <button onClick={props.onClick} class="card-buttons">See Details </button>
         </div>
       </div>
     </article>

@@ -53,7 +53,7 @@ input {
 } */
 
 .input {
-  background-color: #171e2c !important;
+  background-color: #171d2c !important;
   color: #ffffff !important;
 }
 
@@ -64,14 +64,15 @@ input {
 }
 
 .login-btn {
-  font-size: 15px;
-  padding: 7px 15px;
-  background-color: #fd9d00;
-  border-radius: 8px;
+  background-color: #ffffff00; 
+  border: 1px solid #ffffff;
   color: white;
-  border: none;
-  margin-top: 1em; 
-  margin-bottom: 1em;
+  padding: 8px 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .login-btn:hover {

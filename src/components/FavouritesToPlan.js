@@ -113,20 +113,23 @@ export default function AddToPlan (props) {
   }
   
   return (
-    <div>
-      <h1>{props.name}</h1>
-      <div>
-        <label>Date </label>
-        <select value={chosenPlan} onChange={(event) => planChangeHandler(event.target.value)}>
+    <div class="favorites-card">
+      <div class="favorites-card-name">
+      <p>{props.name}</p>
+      </div>
+      <div class="favorites-card-plan">
+        <label>Plan </label>
+        <select class="select-favourites" value={chosenPlan} onChange={(event) => planChangeHandler(event.target.value)}>
           <option key={1000} value="select" selected> Select plans </option>
           {options}
         </select>
-        
-        <label>Time</label>
-        <p>From: {timeRange.start} </p>
-        <p>To: {timeRange.end}</p>
-        
-        <div>
+      </div>
+       <div class= "time-display-favourites">
+       
+        <p class="from-time">From: {timeRange.start} </p>
+        <p class="to-time">To: {timeRange.end}</p>
+        </div>
+        <div class="time-slider-favourites">
             <TimeRangeSlider
               disabled={false}
               format={24}
@@ -139,8 +142,7 @@ export default function AddToPlan (props) {
               step={15}
               value={timeRange}/>
         </div>
-        <button onClick={onClick}>Submit</button>
-      </div>
+        <button class="favorites-card-buttons" onClick={onClick}>Submit</button>
     </div>
 
   )

@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import { render} from 'react-dom';
 import axios from 'axios'; 
 import TimeRangeSlider from 'react-time-range-slider';
-
+import '../addToPlan.css'
    
 export default function AddToPlan (props) {
 
@@ -110,7 +109,7 @@ export default function AddToPlan (props) {
 
   let photoURLDetail = ''
   if (props.photos){
-    photoURLDetail = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photos[0].photo_reference}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
+    photoURLDetail = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=275&photoreference=${props.photos[0].photo_reference}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
   } 
 
   const planChangeHandler = (planId) => {
@@ -119,21 +118,23 @@ export default function AddToPlan (props) {
   }
   
   return (
-    <div>
-      <h1>{props.name}</h1>
-      <img src={photoURLDetail} alt="restaurant" />
-      <div>
-        <label>Date </label>
-        <select value={chosenPlan} onChange={(event) => planChangeHandler(event.target.value)}>
+    <div div class="add-card">
+      <img class="add-card-image" src={photoURLDetail} alt="restaurant" />
+      <div class="card-name">
+         <strong>{props.name}</strong>
+      </div>
+      <div class="favorites-card-plan">
+        <label>Plan </label>
+        <select class="select-plan" value={chosenPlan} onChange={(event) => planChangeHandler(event.target.value)}>
           <option key={1000} value="select" selected> Select plans </option>
           {options}
         </select>
-        
-        <label>Time</label>
-        <p>From: {timeRange.start} </p>
-        <p>To: {timeRange.end}</p>
-        
-        <div>
+       </div> 
+       <div class= "time-display-add">
+        <p class="add-from-time">From: {timeRange.start} </p>
+        <p class="add-to-time">To: {timeRange.end}</p>
+        </div>
+        <div class="time-slider-add">
             <TimeRangeSlider
               disabled={false}
               format={24}
@@ -146,8 +147,8 @@ export default function AddToPlan (props) {
               step={15}
               value={timeRange}/>
         </div>
-        <button onClick={onClick}>Submit</button>
-      </div>
+        <button class="add-card-buttons" onClick={onClick}>Submit</button>
+      
     </div>
 
   )

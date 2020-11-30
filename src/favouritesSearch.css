@@ -17,7 +17,7 @@
   flex-direction: column;
   overflow-y: scroll;
   margin-top: 16em;
-  height: 50vh;
+  height: 53vh;
   margin-bottom: 15vh;
   justify-content: center;
   padding-top: 15.5em;
@@ -37,7 +37,7 @@
 }
 
 .favorites-button-bundle {
-  width: 55vw;
+  width: 59vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -47,7 +47,8 @@
   background-color: white; 
   border: none;
   color: #171e2c;
-  padding: 5px 5px;
+  padding-right: 10px;
+  padding-left: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -67,3 +68,44 @@
 .favorites-card-name {
   font-size: 20px;
 }
+
+.favorites-card-plan {
+  padding-bottom: 5px;
+}
+
+.time-slider-favourites {
+  padding-bottom: 1em;
+  width: 60%;
+}
+
+.time-display-favourites {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.from-time {
+  padding: 0;
+  margin: 0;
+}
+
+.to-time {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.select-favourites {
+  border: none;
+  background-color: #FFFFFF00;
+  text-align: center;
+}
+
+.input-range__track--active,
+.input-range__slider {
+  background: #253B59 !important;
+  border-color: #253B59 !important;
+}
+

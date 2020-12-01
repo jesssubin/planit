@@ -29,7 +29,6 @@ function App () {
   
   return (
     <Router>
-      <div>
         <nav class="nav-bar">
             <Link to="/"><i class="fas fa-search"></i></Link>
             <Link to="/favourites"><i class="far fa-heart" /></Link>
@@ -37,9 +36,7 @@ function App () {
             <Link to="/history"><i class="fa fa-history"></i></Link>
             <Link to="/profile"><i class="fa fa-user"></i></Link>
         </nav>
-      </div>
-      
-   
+    
       <Switch> 
         <Route path="/register">
          <Register user={user} setUser={setUser} showError={updateErrorMessage}/>

@@ -27,8 +27,9 @@ export default function PlanList (props) {
     console.log("show form: ", startDate)
     return (
       <div> 
+      <div class="plan-void"></div>
        <form id= "add-app">
-       <label>Start your adventure!</label>
+       <label>Start your adventure</label>
        <input type="name"
               id="name"
               placeholder="Name your day plan" 
@@ -83,22 +84,27 @@ export default function PlanList (props) {
         <PlanDetail key={props.key} {...plan} toggleDisplay={() => setPlanDetails(false)}/>
     )
   }
-console.log("PLANSS!!!!", plans)
+
 return (
   <div>
   { planDetails ? showPlanDetails() :
     <div class="plan-list">
     {form ? showForm() : 
-    <div class="plan-result">
-      {plans ?    
-      <div class="individual-plan">
-        <PlanResults plans={plans} onClick={(id) => setPlanDetails(id)}/> 
-      </div> : null}
-      <button onClick={() => setForm(true)} class="new-plan-btn">Create a new plan!</button>
+    <div class="plan-parents">
+      <div class="plan-void"></div>
+   
+       {plans ?    
+         <div class="individual-plan">
+           <button onClick={() => setForm(true)} class="new-plan-btn">Create a new plan</button>
+           <PlanResults plans={plans} onClick={(id) => setPlanDetails(id)}/> 
+         
+         </div> : null}
+      
       </div>
+    
     } 
     </div>
   }
-   </div>
+  </div>
   );
 }

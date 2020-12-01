@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import PlanSummary from "./PlanSummary";
+import '../planlist.css';
 
 export default function PlanDetail (props) {
   const [timeslots, setTimeslots] = useState([]); 
@@ -48,11 +49,12 @@ export default function PlanDetail (props) {
 
   return (
     <div class="plan-list">
+    <div class="plan-void"></div>
     <div class="plan-detail">
       <p class="plan-trip-summary">Your Trip Summary for <br></br>{props.date.slice(0,10)}</p>
   <div> <PlanSummary timeslots={timeslots} plan={props.id} setTimeslots={setTimeslots}/> </div>
-        <button onClick={archivePlan} class="plan-card-buttons">Archive this Plan </button>
-        <button onClick={props.toggleDisplay} class="plan-card-buttons">Back to all Plans </button>
+        <button onClick={archivePlan} class="back-card-buttons">Archive this Plan </button>
+        <button onClick={props.toggleDisplay} class="back-card-buttons">Back to all Plans </button>
     </div>
     </div>
   )

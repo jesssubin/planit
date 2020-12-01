@@ -57,7 +57,7 @@ export default function Activity (props) {
       { details ? showDetails() :
       <div class="card">
         <div >
-        <img class="card-image" src={photoURL} alt="restaurant" />
+        <img class="card-image" src={photoURL} alt="pic" />
         </div>
         <div class="card-name">
          <strong>{props.name}</strong>

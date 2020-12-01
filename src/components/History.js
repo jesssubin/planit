@@ -29,8 +29,11 @@ export default function History (props) {
   return (
     <div class="history-list">
       {historyDetails ? showHistoryDetails() :
-      <div class="history-result">
-        <HistoryResults history={history} onClick={(id) => setHistoryDetails(id)}/>
+      <div>
+        <div class="history-void"> </div>
+        <div class="history-result">
+          <HistoryResults history={history} onClick={(id) => setHistoryDetails(id)}/>
+        </div>
       </div>
       }
     </div>

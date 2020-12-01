@@ -18,7 +18,7 @@
 .explore-result {
   position: fixed;
   overflow-x: scroll;
-  margin-top: 45em;
+  margin-top: 40em;
   height: 100vh;
   margin-bottom: 10vh;
 }

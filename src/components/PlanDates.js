@@ -12,7 +12,7 @@ export default function PlanDates (props) {
 
   return (
     <article>
-      <div class="plan-card">
+      <div class="plan-card-dates">
       <header>{props.date.slice(0,10)}</header>
         <div class="plan-card-name">
           <p>{props.name}</p>

@@ -21,8 +21,9 @@ export default function Favourites (props) {
 
   return (
     <div class="favourites">
-        <div class="favourites-result"> 
-      <FavouritesResult favourites={favourites} setFavourites={setFavourites}/>
+      <div class="favourites-void"></div>
+      <div class="favourites-result"> 
+        <FavouritesResult favourites={favourites} setFavourites={setFavourites}/>
       </div>
     </div>
   )

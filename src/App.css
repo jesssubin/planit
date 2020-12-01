@@ -3,6 +3,7 @@
 body {
   height: 100%;
   font-family: "Raleway", sans-serif; 
+  margin:0px;
 }
 
 head {
@@ -12,7 +13,8 @@ head {
   display: flex; 
   flex-direction: row;
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
+  left:0px;
   justify-content: space-between;
   width: 100vw;
   background-color: #171e2c;

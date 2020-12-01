@@ -5,7 +5,6 @@ import HistoryDetail from "./HistoryDetail";
 
 import "../history.css"
 
-
 export default function History (props) {
   const [history, setHistory] = useState([]);
   const [historyDetails, setHistoryDetails] = useState(false);
@@ -24,12 +23,11 @@ export default function History (props) {
         <HistoryDetail key={props.key} {...hist} toggleDisplay={() => setHistoryDetails(false)}/>
     )
   }
- 
 
   return (
     <div class="history-list">
       {historyDetails ? showHistoryDetails() :
-      <div>
+      <div class="history-parent">
         <div class="history-void"> </div>
         <div class="history-result">
           <HistoryResults history={history} onClick={(id) => setHistoryDetails(id)}/>

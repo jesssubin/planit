@@ -26,7 +26,7 @@
   flex-direction: column;
   align-items: center;
   text-align: right;
-  margin-top: 10em;
+  margin-top: 9.3em;
   margin-bottom: 1.35em;
 }
 
@@ -40,25 +40,29 @@
 }
 
 .register-email {
+  font-family: 'Raleway', sans-serif;
   margin-top: 0.5em;
-  padding: 0.3em;
+  padding: 0.5em;
   width: 50vw;
 }
 
 .register-password {
+  font-family: 'Raleway', sans-serif;
   margin-top: 0.5em; 
   margin-bottom: 0.5em; 
-  padding: 0.3em;
+  padding: 0.5em;
   width: 50vw;
 }
 
 .register-name {
-  padding: 0.3em;
+  font-family: 'Raleway', sans-serif;
+  padding: 0.5em;
   width: 50vw;
 }
 
 .register-confirm-pwd {
-  padding: 0.3em;
+  font-family: 'Raleway', sans-serif;
+  padding: 0.5em;
   width: 50vw;
 }
 
@@ -87,6 +91,6 @@
 
 .register-slogan {
   font-size: large;
-
+  margin-top: 2em;
 }
 

@@ -51,7 +51,7 @@ export default function Favourites (props) {
         </div>
         <div class="favorites-button-bundle">
           <button onClick={() => setDetails(true)} class="favorites-card-buttons"> Add to Plan </button>
-          <button onClick={onClickDelete} class="favorites-card-buttons"> Remove from Favourites </button>
+          <button onClick={onClickDelete} class="favorites-card-buttons"> Unfavourite </button>
         </div>
       </div>}
     </article>

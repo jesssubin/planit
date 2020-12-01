@@ -203,3 +203,18 @@
   margin-left: 8em;
 }
 
+.back-card-buttons {
+  font-family: "Raleway", sans-serif;
+  background-color: white; 
+  border: none;
+  color: #171e2c;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 1em;
+  width: 45%;
+  margin-left: 8em;
+}
+

@@ -4,6 +4,7 @@ import Activity from "./Activity";
 
 
 export default function ExploreResult (props) {
+  
   const { results } = props;
 
   return results.map(activity => {

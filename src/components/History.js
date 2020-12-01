@@ -17,7 +17,6 @@ export default function History (props) {
   }, [])
 
   const showHistoryDetails = () => {
-    console.log("show history details", history, historyDetails)
     const hist = history.find(elem => elem.id === historyDetails)
     return (
         <HistoryDetail key={props.key} {...hist} toggleDisplay={() => setHistoryDetails(false)}/>

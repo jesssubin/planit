@@ -3,9 +3,6 @@ import "../history.css"
 
 export default function HistoryDates (props) {
   
-  console.log("props from details", props)
-  
-  
   return (
     <article>
       <div class="history-card">

@@ -21,50 +21,41 @@ export default function Login (props) {
 
   const handleSubmitClick = (e) => {
     e.preventDefault();
-        //props.showError(null);
-        const userData = {
-            "email":state.email,
-            "password":state.password,
-        }
-        if (!userData.email || !userData.password) {
-          setError("Please enter your email and password!")
-        } else {
-        axios.post('/api/users/login', userData, { withCredentials: true })
-            .then(function (response) {
-              console.log("respsonse status after login:", response.status)
-                if(response.status === 200){
-                  console.log("axios get request has been made successfully", response);
-                    setState(prevState => ({
-                        ...prevState,
-                        'successMessage' : 'Login successful. Redirecting to home page..'
-                    }))
-                    setError("")
-                    props.setUser(response.data) 
-                    goExplore();
-                } else{
-                    console.log("error res login", response)
-                    setError("Please enter valid email and password");
-                }
-              
-            })
-            .catch(function (error) {
-                setError("Invalid email or password!");
-            });
-      }  
+    const userData = {
+        "email":state.email,
+        "password":state.password,
+    }
+    if (!userData.email || !userData.password) {
+      setError("Please enter your email and password!")
+    } else {
+    axios.post('/api/users/login', userData, { withCredentials: true })
+        .then(function (response) {
+            if(response.status === 200){
+                setState(prevState => ({
+                    ...prevState,
+                    'successMessage' : 'Login successful. Redirecting to home page..'
+                }))
+                setError("")
+                props.setUser(response.data) 
+                goExplore();
+            } else{
+                setError("Please enter valid email and password");
+            }
+          
+        })
+        .catch(function (error) {
+            setError("Invalid email or password!");
+        });
     }  
+  }  
   
     const history = useHistory();
     const goExplore = () => history.push('/plan');
 
- 
-
   return (
     <div class="login">
-
-       <div class="sign-in-text">
-         
+       <div class="sign-in-text">        
         </div>
-
       <div class="login-form">
       <form class="login-form" action="/login" method="POST">
 

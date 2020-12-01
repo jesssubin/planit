@@ -26,7 +26,6 @@ export default function PlanTimeslots (props) {
   }
 
   const onClickDelete = () => {
-    console.log("clickdelter", props.id)
     const timeslotData = {
       id: props.id
     }
@@ -34,15 +33,12 @@ export default function PlanTimeslots (props) {
     .then(function(response){
     props.setTimeslots((prev) => {
       let index;
-      console.log(prev, "this is prec")
       prev.forEach((plan, i) => {
-        console.log(plan.id, props.id, "this is if")
         if (plan.id === props.id) {
           index = i
         }
       })
       const prevCopy = [...prev]
-
       prevCopy.splice(index, 1)
       return prevCopy
     })
@@ -61,41 +57,36 @@ export default function PlanTimeslots (props) {
    })
  }, [props.activity_id])
 
- const changeStartHandler = (time) => {
-   
-}
-
-const timeChangeHandler = (time) => {
-  setTimeRange(time);
-}
-
-const changeCompleteHandler = (time) => {
-  
-}
-const onClickSubmitEdit = () => {
-  let strtTime = timeRange.start; 
-  let startTime = strtTime.replace(":", ".");
-  startTime = parseFloat(startTime) * 100
-  startTime = Math.round(startTime); 
-
-  let enTime = timeRange.end; 
-  let endTime = enTime.replace(":", ".");
-  endTime = parseFloat(endTime) * 100;
-  endTime = Math.round(endTime); 
-  const timeslotData = {
-    "id":props.id,
-    "start_time": startTime,
-    "end_time": endTime
+ const changeStartHandler = (time) => { 
   }
-  axios.post('/api/timeslots/update', timeslotData)
-  .then(function (response) {
-    console.log(response.config.data, "response from timeslot")
-  })
-  .catch(function (error) {
-    console.log(error);
-  });    
-  setEdit(false)
-}
+
+  const timeChangeHandler = (time) => {
+    setTimeRange(time);
+  }
+
+  const changeCompleteHandler = (time) => {
+  }
+
+  const onClickSubmitEdit = () => {
+    let strtTime = timeRange.start; 
+    let startTime = strtTime.replace(":", ".");
+    startTime = parseFloat(startTime) * 100
+    startTime = Math.round(startTime); 
+
+    let enTime = timeRange.end; 
+    let endTime = enTime.replace(":", ".");
+    endTime = parseFloat(endTime) * 100;
+    endTime = Math.round(endTime); 
+    const timeslotData = {
+      "id":props.id,
+      "start_time": startTime,
+      "end_time": endTime
+    }
+    axios.post('/api/timeslots/update', timeslotData)
+    .catch(function (error) {
+    });    
+    setEdit(false)
+  }
   
   return (
     

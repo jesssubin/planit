@@ -24,7 +24,6 @@ export default function PlanList (props) {
   }
 
   const showForm = () => {
-    console.log("show form: ", startDate)
     return (
       <div> 
       <div class="plan-void"></div>
@@ -52,15 +51,12 @@ export default function PlanList (props) {
       "name": state.name,
       "date": startDate
     }; 
-    console.log(planDate)
     
     axios.post('/api/plans/plan', planDate)
     .then(function(response) {
-      console.log("res:", response)
       history.push('/'); 
     })
     .catch(function (error) {
-      console.log("error:", error);
   }); 
   }
 
@@ -72,13 +68,12 @@ export default function PlanList (props) {
   useEffect (() => {
     axios.get("/api/plans")
     .then(function(response){
-      console.log(response.data, "response data")
       setPlans([...response.data])
     });
   }, [planDetails])
 
+  //when user clicks show details button, return this
   const showPlanDetails = () => {
-    console.log("show plan details", plans, planDetails)
     const plan = plans.find(plan => plan.id === planDetails)
     return (
         <PlanDetail key={props.key} {...plan} toggleDisplay={() => setPlanDetails(false)}/>
@@ -91,17 +86,13 @@ return (
     <div class="plan-list">
     {form ? showForm() : 
     <div class="plan-parents">
-      <div class="plan-void"></div>
-   
+      <div class="plan-void"></div>   
        {plans ?    
          <div class="individual-plan">
            <button onClick={() => setForm(true)} class="new-plan-btn">Create a new plan</button>
-           <PlanResults plans={plans} onClick={(id) => setPlanDetails(id)}/> 
-         
-         </div> : null}
-      
-      </div>
-    
+           <PlanResults plans={plans} onClick={(id) => setPlanDetails(id)}/>   
+         </div> : null}  
+      </div>  
     } 
     </div>
   }

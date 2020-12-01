@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../register.css"
-import logo from '../logo.png';
 import axios from 'axios'; 
 import { useHistory } from "react-router-dom";
 
@@ -25,54 +24,41 @@ export default function Register (props) {
   }
   
   //send user data to backend database
-  
   const handleSubmitClick = (e) => {
     e.preventDefault();
+    const userData = {
+        "full_name":state.full_name,
+        "email":state.email,
+        "password":state.password,
+    }
     
-  
-        const userData = {
-            "full_name":state.full_name,
-            "email":state.email,
-            "password":state.password,
-        }
-        
-        if (!userData.full_name || !userData.email || !userData.password || !state.confirmPassword) {
-          setError("Please enter your name, email and password")
-        } else if (state.password !== state.confirmPassword) {
-          setError("Passwords do not match!")
-        } else {
-        axios.post('/api/users/register', userData)
-            .then(function (response) {
-                if(response.status === 200){
-                  console.log("axios post request has been made successfully");
-                    setState(prevState => ({
-                        ...prevState,
-                        'successMessage' : 'Registration successful. Redirecting to home page..'
-                    }))
-                    setError("")
-                    props.setUser(response.data) 
-                    history.push('/plan')
-                    //goToPlan(); 
-                    
-                } else{
-    
-                    setError("Some error ocurred");
-                }
-            })
-            .catch(function (error) {
-              setError("User with this email already exists!");
-            });    
-        }   
+    if (!userData.full_name || !userData.email || !userData.password || !state.confirmPassword) {
+      setError("Please enter your name, email and password")
+    } else if (state.password !== state.confirmPassword) {
+      setError("Passwords do not match!")
+    } else {
+    axios.post('/api/users/register', userData)
+        .then(function (response) {
+            if(response.status === 200){
+                setState(prevState => ({
+                    ...prevState,
+                    'successMessage' : 'Registration successful. Redirecting to home page..'
+                }))
+                setError("")
+                props.setUser(response.data) 
+                history.push('/plan')
+            } else{
+                setError("Some error ocurred");
+            }
+        })
+        .catch(function (error) {
+          setError("User with this email already exists!");
+        });    
+    }   
     
   }
 
-
-
- 
   const goToPlan = () => history.push('/plan');
-  
-
-
 
   return (
     <div class="register">

@@ -3,6 +3,7 @@ import React from "react";
 import AddToPlan from "./AddToPlan";
 
 export default function DayListResults (props) {
+  
   const { daylist } = props;
 
   return daylist.map(daylist => {

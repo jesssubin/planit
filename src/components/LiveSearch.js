@@ -16,16 +16,10 @@ export default function LiveSearch(props) {
     .then(function(response){
       setResults([...response.data.results])
     });
-  }, [term])
-
-  
- 
-
-   
+  }, [term]) 
   
   return (
     <Fragment>
-     
       <main class="live-search">
         <div class="searchbar-result">
         <SearchBar onSearch={term => setTerm(term)}/>

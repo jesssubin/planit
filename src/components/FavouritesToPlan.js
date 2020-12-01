@@ -37,12 +37,7 @@ export default function AddToPlan (props) {
   }
 
   const changeCompleteHandler = (time) => {
-    console.log("TELL ME THE TIME: ", time);
   }
-    
-
-  console.log("These are your options: ", options) 
-
 
   const saveActivity = () => {
     let strtTime = timeRange.start; 
@@ -54,7 +49,6 @@ export default function AddToPlan (props) {
     let endTime = enTime.replace(":", ".");
     endTime = parseFloat(endTime) * 100;
     endTime = Math.round(endTime); 
-    // props.showError(null);
 
     let planId = parseFloat(chosenPlan);
     
@@ -67,40 +61,19 @@ export default function AddToPlan (props) {
       "end_time": endTime
     }
     axios.post('/api/timeslots', activityData)
-        .then(function (response) {
-          console.log(response.config.data, "response from timeslot")
-            if(response.status === 200){
-              console.log("axios post request has been made successfully", response);
-                // setState(prevState => ({
-                //     ...prevState,
-                //     'successMessage' : 'Registration successful. Redirecting to home page..'
-                // }))
-                //props.showError(null)
-            } else{  
-                //props.showError("Some error ocurred");
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        });    
+    .then(function (response) {
+    })
+    .catch(function (error) {
+    });    
 }
-  // const onClick = () => {
-  //   saveActivity();
-  //   //console.log(props);
-  // }
 
   const onClick = (e) => {
     e.preventDefault();
-    console.log("before click")
     saveActivity();
-    // saveTimespot();
-    console.log("after click")
     props.toggleDisplay()
   }
   
   const toggleFavourites = function () {
-     //call api with axios to save favorite 
-     //.then 
     setIsFavorite(!isFavorite)
   }
    
@@ -108,7 +81,6 @@ export default function AddToPlan (props) {
 
 
   const planChangeHandler = (planId) => {
-    console.log("plan change handler", planId)
     setChosenPlan(planId);
   }
   

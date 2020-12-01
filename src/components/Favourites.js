@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'; 
 import FavouritesToPlan from './FavouritesToPlan'; 
-
 import "../favouritesSearch.css"
  
 
@@ -22,7 +21,6 @@ export default function Favourites (props) {
           }
         })
         const prevCopy = [...prev]
-
         prevCopy.splice(index, 1)
         return prevCopy
       })
@@ -30,10 +28,8 @@ export default function Favourites (props) {
   }
 
   const showDetails = () => {
-    // e.preventDefault();
     return (
         <FavouritesToPlan {...props} toggleDisplay={() => setDetails(false)}/>
-
     )
   }
   return (

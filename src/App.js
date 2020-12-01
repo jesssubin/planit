@@ -6,7 +6,6 @@ import Register from "./components/Register";
 import Explore from "./components/LiveSearch";
 import History from "./components/History"; 
 import Profile from "./components/Profile";
-import Favourites from "./components/Favourites"; 
 import PlanList from "./components/PlanList"; 
 import FavouritesSearch from "./components/FavouritesSearch"; 
 
@@ -22,11 +21,11 @@ function App () {
   useEffect(()=> {
     axios.get('/api/users/loggedin',{ withCredentials: true }) 
         .then(function(response) {
-          console.log("get user respsonse", response) 
           setUser(response.data); 
         })
   },[])  
   
+  //if user is not logged in, they can't see any page other than register or login
   return (
     <Router>
         <nav class="nav-bar">

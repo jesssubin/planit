@@ -1,15 +1,7 @@
 import React from "react";
 
-
- 
-
 export default function PlanDates (props) {
   
-  console.log("props from plandates", props.id)
- 
-
- 
-
   return (
     <article>
       <div class="plan-card-dates">

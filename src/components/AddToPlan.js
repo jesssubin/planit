@@ -20,15 +20,11 @@ export default function AddToPlan (props) {
   useEffect(() => {
     axios.get("/api/plans")
     .then(function(response){
-     
       setPlan([...response.data])
     });
-
-  
   }, [])  
 
   const changeStartHandler = (time) => {
-   
   }
 
   const timeChangeHandler = (time) => {
@@ -36,12 +32,7 @@ export default function AddToPlan (props) {
   }
 
   const changeCompleteHandler = (time) => {
-    console.log("TELL ME THE TIME: ", time);
   }
-    
-
-  console.log("These are your options: ", options) 
-
 
   const saveActivity = () => {
     let strtTime = timeRange.start; 
@@ -53,7 +44,6 @@ export default function AddToPlan (props) {
     let endTime = enTime.replace(":", ".");
     endTime = parseFloat(endTime) * 100;
     endTime = Math.round(endTime)
-    // props.showError(null);
 
     let planId = parseFloat(chosenPlan);
     
@@ -65,47 +55,25 @@ export default function AddToPlan (props) {
       "start_time": startTime,
       "end_time": endTime
     }
-    console.log(activityData, "going into save activity post")
+
     axios.post('/api/timeslots', activityData)
-        .then(function (response) {
-          console.log(response.config.data, "response from timeslot")
-            if(response.status === 200){
-              console.log("axios post request has been made successfully", response);
-                // setState(prevState => ({
-                //     ...prevState,
-                //     'successMessage' : 'Registration successful. Redirecting to home page..'
-                // }))
-                //props.showError(null)
-            } else{  
-                //props.showError("Some error ocurred");
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        });    
-}
-  // const onClick = () => {
-  //   saveActivity();
-  //   //console.log(props);
-  // }
+    .then(function (response) {
+      })
+    .catch(function (error) {
+      });    
+  }
 
   const onClick = (e) => {
     e.preventDefault();
-    console.log("before click")
     saveActivity();
-    // saveTimespot();
-    console.log("after click")
     props.toggleDisplay()
   }
   
   const toggleFavourites = function () {
-     //call api with axios to save favorite 
-     //.then 
     setIsFavorite(!isFavorite)
   }
    
   const favoriteClass = isFavorite? "far fa-heart" : "fas fa-heart"
-
 
   let photoURLDetail = ''
   if (props.photos){
@@ -113,13 +81,12 @@ export default function AddToPlan (props) {
   } 
 
   const planChangeHandler = (planId) => {
-    console.log("plan change handler", planId)
     setChosenPlan(planId);
   }
   
   return (
     <div div class="add-card">
-      <img class="add-card-image" src={photoURLDetail} alt="restaurant" />
+      <img class="add-card-image" src={photoURLDetail} alt="pic" />
       <div class="card-name">
          <strong>{props.name}</strong>
       </div>
@@ -146,9 +113,7 @@ export default function AddToPlan (props) {
               step={15}
               value={timeRange}/>
         </div>
-        <button class="add-card-buttons" onClick={onClick}>Submit</button>
-      
+        <button class="add-card-buttons" onClick={onClick}>Submit</button>    
     </div>
-
   )
 }

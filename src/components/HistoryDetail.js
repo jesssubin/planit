@@ -4,14 +4,11 @@ import HistorySummary from "./HistorySummary";
 
 export default function HistoryDetail (props) {
   const [timeslots, setTimeslots] = useState([]); 
-  //console.log(props)
-  
-
+ 
   useEffect (() =>{
      const plan = {
        planId: props.id
-    }
-    console.log("PLAN HERE: ", plan)
+      }
 
     axios.post('/api/timeslots/planlist', plan)
     .then(function(response) {
@@ -26,7 +23,6 @@ export default function HistoryDetail (props) {
 
         result.end_time = endOutput; 
         result.start_time = startOutput; 
-        console.log(startOutput, endOutput, "this is in results MAP")
       })
       setTimeslots([...response.data])
     })

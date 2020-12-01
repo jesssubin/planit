@@ -5,8 +5,6 @@ import '../planlist.css';
 
 export default function PlanDetail (props) {
   const [timeslots, setTimeslots] = useState([]); 
-  //console.log(props)
-  
 
   const archivePlan = () => {
     const planData = {
@@ -14,9 +12,8 @@ export default function PlanDetail (props) {
     }
     axios.post('/api/plans/archive', planData)
     .then(function(response) {
-       
+     
     })
-    //props.toggleDisplay() 
     window.location.reload(false);
   }
 
@@ -24,11 +21,9 @@ export default function PlanDetail (props) {
      const plan = {
        planId: props.id
     }
-    console.log("PLAN HERE: ", plan)
 
     axios.post('/api/timeslots/planlist', plan)
     .then(function(response) {
-      console.log(response.data, "planlist DATA")
       const results = response.data
       results.map((result) => {
         let end = result.end_time.toString(); 
@@ -40,7 +35,6 @@ export default function PlanDetail (props) {
 
         result.end_time = endOutput; 
         result.start_time = startOutput; 
-        console.log(startOutput, endOutput, "this is in results MAP")
       })
       setTimeslots([...response.data])
     })

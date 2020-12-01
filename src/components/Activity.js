@@ -11,44 +11,27 @@ export default function Activity (props) {
     photoURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=275&photoreference=${props.photos[0].photo_reference}&key=AIzaSyARFnA9kzyqcgZmiBHLbc5COInWZlmtcac`
   } 
 
-  
   const saveActivity = () => {
-      // props.showError(null);
-      const activityData = {
-        "name":props.name,
-        "address":props.formatted_address, 
-        "types":props.types[0]
-      }
-      axios.post('/api/activities', activityData)
-          .then(function (response) {
-              console.log(response.config.data, "response after clicking fav")
-              if(response.status === 200){
-                console.log("axios post request has been made successfully");
-                  // setState(prevState => ({
-                  //     ...prevState,
-                  //     'successMessage' : 'Registration successful. Redirecting to home page..'
-                  // }))
-                  //props.showError(null)
-              } else{  
-                  //props.showError("Some error ocurred");
-              }
-          })
-          .catch(function (error) {
-              console.log(error);
-          });    
+    const activityData = {
+      "name":props.name,
+      "address":props.formatted_address, 
+      "types":props.types[0]
+    }
+    axios.post('/api/activities', activityData)
+    .then(function (response) {
+    })
+    .catch(function (error) {   
+    });    
   }
   
-
   const onClick = () => {
     saveActivity();
-    //console.log(props);
   }
 
+  //toggle to add to plan card when user clicks add to plan button
   const showDetails = () => {
-    // e.preventDefault();
     return (
-        <AddToPlan {...props} toggleDisplay={() => setDetails(false)}/>
-
+      <AddToPlan {...props} toggleDisplay={() => setDetails(false)}/>
     )
   }
   

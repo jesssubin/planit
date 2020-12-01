@@ -11,10 +11,6 @@
   height: 100vh;
 }
 
-.searchbar-result {
-  
-}
-
 .explore-result {
   position: fixed;
   overflow-x: scroll;

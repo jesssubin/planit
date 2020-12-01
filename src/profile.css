@@ -43,10 +43,6 @@ h1 {
   margin-bottom: 15em;
 }
 
-.logout-btn:hover {
-  background-color: #171e2c ; /* Green */
-  color: white;
-}
 .profile-form {
   display: flex; 
   flex-direction: column;

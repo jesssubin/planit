@@ -80,11 +80,6 @@
   width: 20vw;
 }
 
-.register-btn:hover {
-  background-color: #171e2c ; /* Green */
-  color: white;
-}
-
 .register-p {
   justify-content: center;
 }

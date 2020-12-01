@@ -59,10 +59,6 @@
   width: 20vw;
 }
 
-.login-btn:hover {
-  background-color: #fd7d00 ; /* Green */
-  color: white;
-}
 
 #signup {
   color: white

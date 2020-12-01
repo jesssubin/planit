@@ -73,9 +73,6 @@
   margin-bottom: 1em;
 }
 
-.history-card-buttons:hover {
-  margin: 10px 10px #ffcd62;
-}
 
 .history-card-address {
   display: flex;

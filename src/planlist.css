@@ -146,9 +146,7 @@
   margin-bottom: 1em;
   margin-top: 0.5em;
 }
-.plan-card-buttons:hover {
-  margin: 10px 10px #ffcd62;
-}
+
 .plan-card-address {
   display: flex;
   flex-direction: column;

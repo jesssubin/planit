@@ -2,6 +2,14 @@
 Planit is a full-stack web app that helps users create compact travel plans. 
 Users can search activities, sight-seeing locations, restaurants and more for their travel destinations using the Google Places API. Users can add activities in favourites or into the day plans they created. They can archive plans and view past plan details of the places they have traveled to.
 
+## Screenshots
+
+!["Register and login page to plan page"](https://github.com/jesssubin/planit/blob/master/docs/Planit-register-login.gif?raw=true)
+
+!["Search activities on the explore and add to plan"](https://github.com/jesssubin/planit/blob/master/docs/planit-search-activities.gif?raw=true)
+
+!["Save from favourites and view plan details"](https://github.com/jesssubin/planit/blob/master/docs/planit-save-from-favourite.gif?raw=true)
+
 ## Tech Stacks 
 - HTML/CSS
 - React.js 

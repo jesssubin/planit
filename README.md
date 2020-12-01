@@ -4,9 +4,17 @@ Users can search activities, sight-seeing locations, restaurants and more for th
 
 ## Screenshots
 
+Users can sign in or sign up from the register or login page. This takes them to the plan page where they can create a new plan and see their active plans!
+
 !["Register and login page to plan page"](https://github.com/jesssubin/planit/blob/master/docs/Planit-register-login.gif?raw=true)
 
+After creating a plan, users are redirected to the search page to start adding activities to their plans. 
+Not ready to commit? Users can also add activities to their favourites where they can decide later if they want to add the activity to their plan!
+
 !["Search activities on the explore and add to plan"](https://github.com/jesssubin/planit/blob/master/docs/planit-search-activities.gif?raw=true)
+
+From favourites, users can add activities to their plans. Plans can be opened to display details and edit or delete activities. 
+Plans can also be archived once a user is done with them.
 
 !["Save from favourites and view plan details"](https://github.com/jesssubin/planit/blob/master/docs/planit-save-from-favourite.gif?raw=true)
 

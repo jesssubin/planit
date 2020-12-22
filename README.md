@@ -1,5 +1,5 @@
 # About Planit 
-Planit is a full-stack web app that helps users create compact travel plans. 
+Planit is a full-stack mobile app that helps users create compact travel plans. 
 Users can search activities, sight-seeing locations, restaurants and more for their travel destinations using the Google Places API. Users can add activities in favourites or into the day plans they created. They can archive plans and view past plan details of the places they have traveled to.
 
 ## Screenshots
@@ -24,7 +24,7 @@ Plans can also be archived once a user is done with them.
 - Node.js
 - Express.js
 - PostgreSQL
-- Google API 
+- Google Places API 
 
 ### planit-api 
 
